@@ -1,4 +1,4 @@
-# Fatah RobbySalam
+# Frobby
 
 ![Fatah RobbySalam - A Next.js Personal Web App](https://github.com/fthrobby/portofolio-next-v2/blob/main/public/summary.png)
 
