@@ -12,16 +12,23 @@ const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-mont" });
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
+  const metaDescription = "My personal website. Build using Next Js";
+  const metaTitle = "Fatah Robby";
+  const metaImage = "https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg";
+
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        {/* <link rel="preconnect" href="https://api.openweathermap.org"></link> */}
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com"></link>
-        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <meta property="og:description" content="My personal website. Build usign Next Js" />
-        <meta property="og:image" content="https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <meta name="description" content={metaDescription} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={metaImage} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:url" content={`https://fatahrobby-portfolio.vercel.app/${router.asPath}`} />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <main
         className={`${montserrat.variable} font-mont  bg-light dark:bg-dark w-full min-h-screen h-full`}
