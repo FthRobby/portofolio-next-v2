@@ -20,6 +20,8 @@ export default function App({ Component, pageProps }) {
         {/* <link rel="preconnect" href="https://api.openweathermap.org"></link> */}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <meta property="og:description" content="My personal website. Build usign Next Js" />
+        <meta property="og:image" content="https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg" />
       </Head>
       <main
         className={`${montserrat.variable} font-mont  bg-light dark:bg-dark w-full min-h-screen h-full`}
