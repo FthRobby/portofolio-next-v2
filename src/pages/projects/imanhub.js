@@ -62,8 +62,18 @@ const ImanHub = () => {
               <h4 className="mt-4 text-lg font-800 capitalize text-dark/75 dark:text-light/75">
                 {/* Unleashing the Power of Expo Framework */}
               </h4>
-
-              <div className="mt-2 flex items-center grid-cols-8 gap-4 sm:gap-8">
+              <div className="flex flex-row-reverse sm:flex-col gap-9 justify-center mt-10">
+                <div className=" flex items-center grid-cols-8 gap-4 sm:gap-8">
+                  <Link href="" className="w-10">
+                    <JsIcon />
+                  </Link>
+                  <Link href="" className="w-10">
+                    <ReactIcon />
+                  </Link>
+                  <Link href="" className="w-10" aria-label="github link">
+                    <ExpoIcon />
+                  </Link>
+                </div>
                 <Link
                   aria-disabled
                   className="p-2 px-6 text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:cursor-not-allowed"
@@ -71,15 +81,6 @@ const ImanHub = () => {
                   href=""
                 >
                   Not Avaiable
-                </Link>
-                <Link href="" className="w-10" aria-label="github link">
-                  <JsIcon />
-                </Link>
-                <Link href="" className="w-10" aria-label="github link">
-                  <ReactIcon />
-                </Link>
-                <Link href="" className="w-10" aria-label="github link">
-                  <ExpoIcon />
                 </Link>
               </div>
             </div>

@@ -13,6 +13,7 @@ import {
   JsIcon,
   VueIcon,
   TailwindIcon,
+  PiniaLogo,
 } from "@/components/Icons";
 
 import proj1 from "/public/images/projects/geniusRestoAdmin.jpg";
@@ -59,27 +60,33 @@ const RestopiaDashboard = () => {
                 customer, cashier, and kitchen applications, ensuring smooth
                 system integration.
               </p>
+              
               <h4 className="mt-4 text-lg font-800 capitalize text-dark/75 dark:text-light/75">
                 {/* Unleashing the Power of Expo Framework */}
               </h4>
 
-              <div className="mt-2 flex items-center grid-cols-8 gap-4 sm:gap-8">
+              <div className="flex flex-row-reverse sm:flex-col gap-9 justify-center mt-10">
+                <div className=" flex items-center grid-cols-8 gap-4 sm:gap-8">
+                  <Link href="" className="w-10" aria-label="github link">
+                    <JsIcon />
+                  </Link>
+                  <Link href="" className="w-10" aria-label="github link">
+                    <VueIcon />
+                  </Link>
+                  <Link href="" className="w-10" aria-label="github link">
+                    <TailwindIcon />
+                  </Link>
+                  <Link href="" className="w-10" aria-label="github link">
+                    <PiniaLogo />
+                  </Link>
+                </div>
                 <Link
                   aria-disabled
-                  className="p-2 px-6 text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:cursor-not-allowed"
+                  className="p-2 px-6 text-center text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:cursor-not-allowed"
                   aria-label="Visit Theme Demo"
                   href=""
                 >
                   Not Avaiable
-                </Link>
-                <Link href="" className="w-10" aria-label="github link">
-                  <JsIcon />
-                </Link>
-                <Link href="" className="w-10" aria-label="github link">
-                  <VueIcon />
-                </Link>
-                <Link href="" className="w-10" aria-label="github link">
-                  <TailwindIcon />
                 </Link>
               </div>
             </div>

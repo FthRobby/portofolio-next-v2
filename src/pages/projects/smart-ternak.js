@@ -63,15 +63,8 @@ const Smartternak = () => {
                 {/* Unleashing the Power of Expo Framework */}
               </h4>
 
-              <div className="mt-2 flex items-center grid-cols-8 gap-4 sm:gap-8">
-                <Link
-                  aria-disabled
-                  className="p-2 px-6 text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:cursor-not-allowed"
-                  aria-label="Visit Theme Demo"
-                  href=""
-                >
-                  Not Avaiable
-                </Link>
+              <div className="flex flex-row-reverse sm:flex-col gap-9 justify-center mt-10">
+                <div className=" flex items-center grid-cols-8 gap-4 sm:gap-8">
                 <Link href="" className="w-10" aria-label="github link">
                   <JsIcon />
                 </Link>
@@ -84,7 +77,18 @@ const Smartternak = () => {
                 <Link href="" className="w-10" aria-label="github link">
                   <PiniaLogo />
                 </Link>
+                </div>
+                <Link
+                  aria-disabled
+                  className="p-2 px-6 text-lg text-center font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:cursor-not-allowed"
+                  aria-label="Visit Theme Demo"
+                  href=""
+                >
+                  Not Avaiable
+                </Link>
               </div>
+
+
             </div>
             <div
               className="relative col-span-4 h-max rounded-2xl border-2 border-solid border-dark 

@@ -10,6 +10,9 @@ import {
   AndroidIcon,
   IosIcon,
   HuaweiIcon,
+  JsIcon,
+  ReactIcon,
+  PlaystoreIcon,
 } from "@/components/Icons";
 
 import proj1 from "/public/images/projects/itani.jpg";
@@ -42,7 +45,7 @@ const Itani = () => {
               <h3 className="mb-4 text-lg font-bold  text-lightGreen dark:text-primaryDark">
                 Design | Development | Multiplatform Apps
               </h3>
-              <div classNname="w-full border-2 border-solid border-light bg-light"></div>
+              <div className="w-full border-2 border-solid border-light bg-light"></div>
               <p className="">
                 ITani is a digital farmery platform based on websites and mobile
                 apps which provides easy solutions for #DigitalFarmers in
@@ -55,26 +58,33 @@ const Itani = () => {
                 Unleashing the Power of Expo Framework
               </h4> */}
 
-              <div className="mt-2 flex items-center grid-cols-8 gap-4 sm:gap-8">
+              <div className="flex flex-row-reverse sm:flex-col gap-9 justify-center mt-10">
+                <div className=" flex items-center grid-cols-8 gap-4 sm:gap-8">
+                  <Link
+                    href="https://play.google.com/store/apps/details?id=com.frobby10.ipanganpetani"
+                    target={"_blank"}
+                    className="w-10"
+                    aria-label="github link"
+                  >
+                    <PlaystoreIcon />
+                  </Link>
+                  <Link href="" className="w-10">
+                    <JsIcon />
+                  </Link>
+                  <Link href="" className="w-10">
+                    <ReactIcon />
+                  </Link>
+                </div>
                 <Link
-                  className=" p-2 px-6 text-lg font-semibold
-             sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark
-            capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
-            dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
-            md:p-2 md:px-4 md:text-base"
+                  className=" p-2 px-6 text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark 
+                  capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+                dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+                  md:p-2 md:px-4 md:text-base text-center"
                   aria-label="Visit Theme Demo"
                   href="https://play.google.com/store/apps/details?id=com.frobby10.ipanganpetani"
                   target={"_blank"}
                 >
                   Visit Demo
-                </Link>
-                <Link
-                  href="https://play.google.com/store/apps/details?id=com.frobby10.ipanganpetani"
-                  target={"_blank"}
-                  className="w-10"
-                  aria-label="github link"
-                >
-                  <AndroidIcon />
                 </Link>
               </div>
             </div>
