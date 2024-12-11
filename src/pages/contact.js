@@ -1,57 +1,113 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import Head from "next/head";
 import AnimatedText from "@/components/AnimatedText";
 import TransitionEffect from "@/components/TransitionEffect";
-import { useRouter } from "next/router";
+import supabase from "@/lib/supabase";
+import toast, { Toaster } from "react-hot-toast";
+import { useThemeSwitch } from "@/components/Hooks/useThemeSwitch";
+import { Resend } from "resend";
+import EmailTemplate from "@/components/EmailTemplate";
 
-// Netlify Form config
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 export default function About() {
-  const router = useRouter();
+  const [mode] = useThemeSwitch();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    body: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccessful, setIsSuccessFul] = useState(false);
+  const [feeback, setFeeback] = useState("");
+
+  useEffect(() => {
+    if (feeback && !isSuccessful) {
+      setTimeout(() => setFeeback(""), 3000);
+    }
+  }, [feeback, isSuccessful]);
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    // setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const myForm = e.target;
-    const formData = new FormData(myForm);
+    setIsSubmitting(true);
+    setFeeback(""); // Clear any previous feedback
+    const { name, email, body } = formData;
+    // Validation
+    if (!name || !email || !body) {
+      setFeeback("All fields are required");
+      setIsSubmitting(false);
+      return;
+    }
     try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+      const { data, error } = await supabase
+        .from("contacts")
+        .insert({ name, email, body });
+      console.log("result send : ", data);
+      if (error) {
+        throw error;
+      }
+      setFeeback("Form submitted successfully");
+      setFormData({
+        name: "",
+        email: "",
+        body: "",
+      });
+      toast("Your submission was successful. I’ll be in touch with you soon.", {
+        icon: "👋",
+        position: "top-right",
+        duration: 5000,
+        style: {
+          borderRadius: "10px",
+          borderRadius: "10px",
+          background: mode === "dark" ? "#f5f5f5" : "#1b1b1b",
+          color: mode === "dark" ? "#1b1b1b" : "#f5f5f5",
         },
-        body: new URLSearchParams(formData).toString(),
+      });
+    } catch (error) {
+      console.error("Error occurred:", error);
+      setFeeback("An error occurred while submitting the form.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const testSendEmail = async () => {
+    try {
+      const { data, error } = await resend.emails.send({
+        from: "Acme <onboarding@resend.dev>",
+        to: ["lingkenzo49@gmail.com"],
+        subject: "Hello world",
+        react: EmailTemplate({ firstName: "John" }),
       });
 
-      if (response.ok) {
-        // Handle success, e.g., redirect to a thank you page
-        router.push("/thanks");
-      } else {
-        // Handle error
-        console.error("Form submission failed!", response);
+      if (error) {
+        return Response.json({ error }, { status: 500 });
       }
+
+      return Response.json(data);
     } catch (error) {
-      // Handle error
-      console.error("An error occurred during form submission:", error);
+      return Response.json({ error }, { status: 500 });
     }
   };
 
   return (
     <>
       <Head>
-        <title>NexTemp Built with Nextjs</title>
+        <title>Fatah RobbySalam | Contact Me</title>
         <meta
           name="description"
-          content="NexTemp, A open-source portfolio theme built with Nextjs"
+          content="Feel free to contact me if you have amazing idea to create new project!"
         />
       </Head>
 
@@ -65,10 +121,11 @@ export default function About() {
             className="mb-16 !text-8xl !leading-tight lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
           />
 
+          <Toaster />
           <div className="grid w-full grid-cols-8 gap-16 sm:gap-8 relative items-center justify-center rounded-2xl rounded-br-2xl border border-solid border-dark bg-light p-6 shadow-2xl dark:border-light dark:bg-dark xs:p-4">
             <div className="absolute top-0 -right-5 -z-10 h-[103%] w-[101.5%] rounded-[2rem] rounded-br-3xl bg-dark dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]" />
             <div className="col-span-4 flex flex-col items-start justify-start xl:col-span-4 md:order-1 md:col-span-8">
-              <h2 className="my-4 text-2xl font-bold capitalize text-primaryDark dark:text-primaryDark">
+              <h2 className="my-4 text-2xl font-bold capitalize text-lightGreen dark:text-lightGreen">
                 What’s Next?
               </h2>
 
@@ -98,6 +155,7 @@ export default function About() {
                         <input name="bot-field" />
                       </label>
                     </p>
+
                     <div className="col-span-1 p-2">
                       <label className="block text-sm font-medium text-dark dark:text-light">
                         Your Name:
@@ -105,15 +163,16 @@ export default function About() {
                           type="text"
                           name="name"
                           required
-                          autoComplete="name"
+                          autoComplete="off"
                           className="mt-1 p-2 w-full border border-solid border-dark rounded-md bg-light dark:border-light dark:bg-dark dark:text-light"
+                          value={formData.name}
                           onChange={handleChange}
                         />
                       </label>
                     </div>
 
                     <div className="col-span-1 p-2">
-                      <label className="block text-sm font-medium text-dark/75 dark:text-light/75">
+                      <label className="block text-sm font-medium text-dark/75 dark:text-light">
                         Your Email:
                         <input
                           type="email"
@@ -121,6 +180,7 @@ export default function About() {
                           required
                           autoComplete="off"
                           className="mt-1 p-2 w-full border border-solid border-dark rounded-md bg-light dark:border-light dark:bg-dark dark:text-light"
+                          value={formData.email}
                           onChange={handleChange}
                         />
                       </label>
@@ -128,16 +188,17 @@ export default function About() {
 
                     <div className="col-span-1 p-2">
                       <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-dark/75 dark:text-light/75"
+                        htmlFor="body"
+                        className="block text-sm font-medium text-dark/75 dark:text-light"
                       >
                         Message:
                         <textarea
-                          name="message"
-                          id="message"
+                          name="body"
+                          id="body"
                           required
                           rows="4"
                           className="mt-1 p-2 w-full border border-solid border-dark rounded-md bg-light dark:border-light dark:bg-dark dark:text-light"
+                          value={formData.body}
                           onChange={handleChange}
                         ></textarea>
                       </label>
@@ -147,10 +208,20 @@ export default function About() {
                       <button
                         type="submit"
                         className="px-4 py-2 font-bold capitalize text-light bg-dark border-2 border-solid border-dark dark:border-light dark:bg-light rounded-md hover:bg-transparent hover:text-dark dark:hover:text-light dark:hover:bg-dark dark:hover:border-light  dark:text-dark"
+                        disabled={isSubmitting}
                       >
-                        Send it!
+                        {isSubmitting ? "Submitting..." : "Send it!"}
                       </button>
                     </div>
+
+                    {feeback && (
+                      <div className="col-span-1 p-2">
+                        <p className="text-sm text-center">{feeback}</p>
+                      </div>
+                    )}
+                    {/* <button onClick={testSendEmail}>
+                      test send email
+                    </button> */}
                   </form>
                 </div>
               </div>
