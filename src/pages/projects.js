@@ -80,10 +80,11 @@ const Article = ({ img, title, date, link }) => {
       "
     >
       {/* <MovingImg img={img} title={title} link={link} /> */}
-
-      <h2 className="capitalize text-xl text-center font-semibold hover:underline dark:text-light md:text-lg xs:text-base sm:self-start">
-        {title}
-      </h2>
+      <Link href={link}>
+        <h2 className="capitalize text-xl text-center font-semibold hover:underline dark:text-light md:text-lg xs:text-base sm:self-start">
+          {title}
+        </h2>
+      </Link>
     </motion.li>
   );
 };
@@ -315,7 +316,7 @@ export default function Projects() {
             </div>
           </div>
 
-          <Article title="Need an extraordinary project? Contact me!" link="" />
+          <Article title="I'm eager to join your project and make an impact. Let's build something great together!" link="/contact" />
 
           {/* <ul class="flex flex-col items-center relative pt-16">
             <li
