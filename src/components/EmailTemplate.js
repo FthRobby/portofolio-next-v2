@@ -16,7 +16,7 @@ export const EmailTemplate = ({ body, email, nama }) => (
   <Html>
     <Head />
     <Preview>
-      The sales intelligence platform that helps you uncover qualified leads.
+      From your landing page.
     </Preview>
     <Body style={main}>
       <Container style={container}>
