@@ -6,10 +6,7 @@ import TransitionEffect from "@/components/TransitionEffect";
 import supabase from "@/lib/supabase";
 import toast, { Toaster } from "react-hot-toast";
 import { useThemeSwitch } from "@/components/Hooks/useThemeSwitch";
-import { Resend } from "resend";
-import EmailTemplate from "@/components/EmailTemplate";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 export default function About() {
   const [mode] = useThemeSwitch();
@@ -30,7 +27,6 @@ export default function About() {
   }, [feeback, isSuccessful]);
 
   const handleChange = (e) => {
-    // setFormData({ ...formData, [e.target.name]: e.target.value });
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -41,22 +37,38 @@ export default function About() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setFeeback(""); // Clear any previous feedback
+    setFeeback(""); 
     const { name, email, body } = formData;
-    // Validation
     if (!name || !email || !body) {
       setFeeback("All fields are required");
       setIsSubmitting(false);
       return;
     }
     try {
-      const { data, error } = await supabase
-        .from("contacts")
-        .insert({ name, email, body });
-      console.log("result send : ", data);
-      if (error) {
-        throw error;
+      // ==== send data to supabase ==== \\
+      // const { data, error } = await supabase
+      //   .from("contacts")
+      //   .insert({ name, email, body });
+      // console.log("result send : ", data);
+      // if (error) {
+      //   throw error;
+      // }
+
+      // ==== send data to personal email ==== \\
+      const response = await fetch('/api/send',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nama: name, email, body})
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.message || 'An error occurred while submitting the form.');
       }
+
       setFeeback("Form submitted successfully");
       setFormData({
         name: "",
@@ -82,24 +94,6 @@ export default function About() {
     }
   };
 
-  const testSendEmail = async () => {
-    try {
-      const { data, error } = await resend.emails.send({
-        from: "Acme <onboarding@resend.dev>",
-        to: ["lingkenzo49@gmail.com"],
-        subject: "Hello world",
-        react: EmailTemplate({ firstName: "John" }),
-      });
-
-      if (error) {
-        return Response.json({ error }, { status: 500 });
-      }
-
-      return Response.json(data);
-    } catch (error) {
-      return Response.json({ error }, { status: 500 });
-    }
-  };
 
   return (
     <>
@@ -222,11 +216,20 @@ export default function About() {
                     {/* <button onClick={testSendEmail}>
                       test send email
                     </button> */}
+                    {/* <div className="col-span-1 p-2"> */}
+                    {/* <button
+                        className="px-4 py-2 font-bold capitalize text-light bg-dark border-2 border-solid border-dark dark:border-light dark:bg-light rounded-md hover:bg-transparent hover:text-dark dark:hover:text-light dark:hover:bg-dark dark:hover:border-light  dark:text-dark"
+                        onClick={testSendEmail}
+                      >
+                        test send resend
+                      </button> */}
+                    {/* </div> */}
                   </form>
                 </div>
               </div>
             </div>
           </div>
+          {/* <EmailTemplate body={"Halloooo"} nama={"anon"} email={"anon@gmail.com"}/> */}
         </Layout>
       </main>
     </>
