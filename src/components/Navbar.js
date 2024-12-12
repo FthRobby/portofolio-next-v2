@@ -108,13 +108,10 @@ const Navbar = () => {
 
           {/* <CustomLink className="ml-4" href="/articles" title="Articles" /> */}
         </nav>
-        <nav
-          className="flex items-center justify-center flex-wrap lg:mt-2
-      "
-        >
+        <nav className="flex items-center justify-center flex-wrap lg:mt-2 gap-3">
           <motion.a
             target={"_blank"}
-            className="w-7 mr-3"
+            className="w-7"
             href="https://github.com/fthrobby"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
@@ -156,7 +153,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
-            className={`w-7 h-7 ease ml-3 flex items-center justify-center rounded-full p-1  
+            className={`w-7 h-7 ease  flex items-center justify-center rounded-full p-1  
             ${mode === "light" ? "bg-dark  text-light" : "bg-light  text-dark"}
             `}
             aria-label="theme-switcher"
@@ -167,6 +164,17 @@ const Navbar = () => {
               <MoonIcon className={"fill-dark"} />
             )}
           </button>
+
+          <a
+            download
+            href="/resume_FRobbySalam.pdf"
+            className="flex items-center rounded-lg border-2 border-solid bg-dark p-1 ease  px-6 text-lg font-semibold
+            capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+            dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+            md:p-2 md:px-4 md:text-base"
+          >
+            Download Resume
+          </a>
         </nav>
       </div>
       {isOpen ? (
@@ -209,6 +217,18 @@ const Navbar = () => {
               href="/contact"
               title="Contact"
             />
+            <a
+              download
+              href="/resume_FRobbySalam.pdf"
+              className="flex items-center rounded-lg border-2 border-solid  p-1 ease  px-6 text-lg font-semibold
+              capitalize  hover:bg-transparent 
+            text-dark bg-light  hover:text-light hover:border-light 
+            dark:bg-dark dark:text-light dark:hover:border-dark dark:hover:bg-light 
+            dark:hover:text-dark
+              md:p-2 md:px-4 md:text-base"
+            >
+              Download Resume
+            </a>
           </nav>
           <nav className="flex items-center justify-center mt-2">
             <motion.a
