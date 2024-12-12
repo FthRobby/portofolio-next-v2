@@ -22,8 +22,8 @@ export const EmailTemplate = ({ body, email, nama }) => (
       <Container style={container}>
         <Img
           src={`https://www.frobby.tech/logo.jpg`}
-          width="170"
-          height="170"
+          width="100"
+          height="100"
           alt="logo"
           style={logo}
         />
@@ -54,6 +54,9 @@ export const EmailTemplate = ({ body, email, nama }) => (
         <Hr style={hr} />
         <Text style={footer}>
           Auto message forwarding, made by Fatah RobbySalam
+        </Text>
+        <Text style={footer}>
+          Reply message using 
         </Text>
       </Container>
     </Body>
