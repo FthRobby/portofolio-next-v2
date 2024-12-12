@@ -1,6 +1,6 @@
 # Frobby.
 
-![Fatah RobbySalam - A Next.js Personal Web App](https://github.com/fthrobby/portofolio-next-v2/blob/main/public/summary.png)
+![Fatah RobbySalam - A Next.js Personal Web App](https://raw.githubusercontent.com/fthrobby/portofolio-next-v2/refs/heads/main/public/summary.png)
 
 ## 📚 Tech Stack
 Next.js 14+
@@ -21,12 +21,18 @@ Framer Motion 11+
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/lilxyzz/nextemp.git
+    git clone https://github.com/FthRobby/portofolio-next-v2
+    ```
+
+    or if you are using ssh
+
+    ```bash
+    git clone git@github.com:FthRobby/portofolio-next-v2.git
     ```
 
 2. Navigate into the repository:
     ```bash
-    cd NexTemp
+    cd portofolio-next-v2
     ```
 
 3. Install the dependencies:
@@ -34,8 +40,13 @@ Framer Motion 11+
     yarn
     ```
 
-4. Run the development server:
+4. Build the project first
+    ```bash
+    yarn build
+    ```  
+
+5. Run the development server:
     ```bash
     yarn dev
     ```
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
