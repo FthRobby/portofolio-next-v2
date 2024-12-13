@@ -3,10 +3,8 @@ import Layout from "@/components/Layout";
 import Head from "next/head";
 import AnimatedText from "@/components/AnimatedText";
 import TransitionEffect from "@/components/TransitionEffect";
-import supabase from "@/lib/supabase";
 import toast, { Toaster } from "react-hot-toast";
 import { useThemeSwitch } from "@/components/Hooks/useThemeSwitch";
-
 
 export default function About() {
   const [mode] = useThemeSwitch();
@@ -37,63 +35,65 @@ export default function About() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setFeeback(""); 
+    setFeeback("");
+  
     const { name, email, body } = formData;
     if (!name || !email || !body) {
       setFeeback("All fields are required");
       setIsSubmitting(false);
       return;
     }
+  
     try {
-      // ==== send data to supabase ==== \\
-      // const { data, error } = await supabase
-      //   .from("contacts")
-      //   .insert({ name, email, body });
-      // console.log("result send : ", data);
-      // if (error) {
-      //   throw error;
-      // }
-
-      // ==== send data to personal email ==== \\
-      const response = await fetch('/api/send',{
+      const response = await fetch('/api/message/send', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nama: name, email, body})
-      })
-
-      const result = await response.json()
-
-      if (!response.ok) {
+        body: JSON.stringify({ nama: name, email, body }),
+      });
+  
+      const result = await response.json();
+      if (response.status === 429) {
+        setFeeback("Too many submissions. Please try again later.");
+        toast("Too many submissions. Please try again later.", {
+          icon: "🚫",
+          position: "top-right",
+          duration: 5000,
+          style: {
+            borderRadius: "10px",
+            background: "#f5f5f5",
+            color: "#1b1b1b",
+          },
+        });
+      } else if (!response.ok) {
         throw new Error(result.message || 'An error occurred while submitting the form.');
+      } else {
+        setFeeback("Form submitted successfully");
+        setFormData({
+          name: "",
+          email: "",
+          body: "",
+        });
+        toast("Your submission was successful. I’ll be in touch with you soon.", {
+          icon: "👋",
+          position: "top-right",
+          duration: 5000,
+          style: {
+            borderRadius: "10px",
+            background: mode === "dark" ? "#f5f5f5" : "#1b1b1b",
+            color: mode === "dark" ? "#1b1b1b" : "#f5f5f5",
+          },
+        });
       }
-
-      setFeeback("Form submitted successfully");
-      setFormData({
-        name: "",
-        email: "",
-        body: "",
-      });
-      toast("Your submission was successful. I’ll be in touch with you soon.", {
-        icon: "👋",
-        position: "top-right",
-        duration: 5000,
-        style: {
-          borderRadius: "10px",
-          borderRadius: "10px",
-          background: mode === "dark" ? "#f5f5f5" : "#1b1b1b",
-          color: mode === "dark" ? "#1b1b1b" : "#f5f5f5",
-        },
-      });
     } catch (error) {
-      console.error("Error occurred:", error);
+      console.error("error send message", error);
       setFeeback("An error occurred while submitting the form.");
     } finally {
       setIsSubmitting(false);
     }
   };
-
+  
 
   return (
     <>
