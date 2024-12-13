@@ -13,13 +13,14 @@ import {
 import { motion } from "framer-motion";
 import { useThemeSwitch } from "./Hooks/useThemeSwitch";
 
-const CustomLink = ({ href, title, className = "" }) => {
+const CustomLink = ({ href, title, className = "", target }) => {
   const router = useRouter();
 
   return (
     <Link
       href={href}
       className={`${className}  rounded relative group lg:text-light lg:dark:text-dark`}
+      target={target}
     >
       {title}
       <span
@@ -31,12 +32,13 @@ const CustomLink = ({ href, title, className = "" }) => {
   );
 };
 
-const CustomMobileLink = ({ href, title, className = "", toggle }) => {
+const CustomMobileLink = ({ href, title, className = "", toggle, target }) => {
   const router = useRouter();
 
   const handleClick = () => {
     toggle();
     router.push(href);
+    target
   };
 
   return (
@@ -105,6 +107,7 @@ const Navbar = () => {
           <CustomLink className="mx-4" href="/about" title="About" />
           <CustomLink className="mx-4" href="/projects" title="Projects" />
           <CustomLink className="mx-4" href="/contact" title="Contact" />
+          <CustomLink className="mx-4" href="https://dashboard.frobby.tech/" title="Tips" target={'_blank'} />
 
           {/* <CustomLink className="ml-4" href="/articles" title="Articles" /> */}
         </nav>
@@ -216,6 +219,12 @@ const Navbar = () => {
               className="ml-4 lg:m-0 lg:my-2"
               href="/contact"
               title="Contact"
+            />
+            <CustomMobileLink
+              toggle={handleClick}
+              className="ml-4 lg:m-0 lg:my-2"
+              href="https://dashboard.frobby.tech/"
+              title="Tips & Trick"
             />
             <a
               download
