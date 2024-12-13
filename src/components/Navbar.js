@@ -107,7 +107,7 @@ const Navbar = () => {
           <CustomLink className="mx-4" href="/about" title="About" />
           <CustomLink className="mx-4" href="/projects" title="Projects" />
           <CustomLink className="mx-4" href="/contact" title="Contact" />
-          <CustomLink className="mx-4" href="https://dashboard.frobby.tech/" title="Tips" target={'_blank'} />
+          <CustomLink className="mx-4" href="https://dashboard.frobby.tech/" title="Tips" />
 
           {/* <CustomLink className="ml-4" href="/articles" title="Articles" /> */}
         </nav>
