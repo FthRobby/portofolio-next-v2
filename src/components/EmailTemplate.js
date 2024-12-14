@@ -6,69 +6,88 @@ import {
   Hr,
   Html,
   Img,
+  Link,
   Preview,
+  Row,
   Section,
   Text,
+  Column,
 } from "@react-email/components";
-import React from "react";
+import * as React from "react";
 
-export const EmailTemplate = ({ body, email, nama }) => (
-  <Html>
-    <Head />
-    <Preview>
-      From your landing page.
-    </Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Img
-          src={`https://www.frobby.tech/logo.jpg`}
-          width="100"
-          height="100"
-          alt="logo"
-          style={logo}
-        />
-        <Text style={paragraph}>
-          Hi Fatah, you've new message from your page
-        </Text>
-        <Text style={paragraph}>{body}</Text>
-        <Text style={paragraph}>
-          This message from : {nama} | {email}
-        </Text>
-        <Section style={btnContainer}>
-          <Button
-            href={`mailto:${email}`}
-            style={{
-              width: "100%",
-              boxSizing: "border-box",
-              padding: 12,
-              fontWeight: 600,
-              borderRadius: 8,
-              textAlign: "center",
-              backgroundColor: "#1b1b1b",
-              color: "#f5f5f5",
-            }}
-          >
-            Reply Message
-          </Button>
-        </Section>
-        <Hr style={hr} />
-        <Text style={footer}>
-          Auto message forwarding, made by Fatah RobbySalam
-        </Text>
-        <Text style={footer}>
-          Reply message using 
-        </Text>
-      </Container>
-    </Body>
-  </Html>
-);
+export const EmailTemplate = ({ nama, email, body }) => {
+  const previewText = `Read ${nama}'s message`;
+
+  return (
+    <Html>
+      <Head />
+      <Preview>{previewText}</Preview>
+
+      <Body style={main}>
+        <Container style={container}>
+          <Section>
+            <Column>
+              <Img
+                src={`https://www.frobby.tech/logo.jpg`}
+                width="50"
+                height="50"
+                alt="frobby_tech"
+                style={{ borderRadius: 20, marginTop: 10, marginRight: 20 }}
+              />
+            </Column>
+            <Column>
+              <Text style={{ fontSize: 50 }}>|</Text>
+            </Column>
+            <Column>
+              <Img
+                src={`https://static-00.iconduck.com/assets.00/nextjs-icon-2048x1234-pqycciiu.png`}
+                width="100"
+                height="30"
+                alt="react_email_logo"
+              />
+            </Column>
+          </Section>
+
+          <Section>
+            <Text style={paragraph}>You have new message from : {nama} </Text>
+          </Section>
+          <Section style={{ paddingBottom: "20px" }}>
+            <Row>
+              <Text style={heading}>Here's what {nama} wrote</Text>
+              <Text style={review}>{body}</Text>
+              <Text style={paragraph}>
+                {nama}'s email : {email}{" "}
+              </Text>
+              <Button style={button} href={`mailto:${email}`}>
+                reply message
+              </Button>
+            </Row>
+          </Section>
+
+          <Hr style={hr} />
+
+          <Section>
+            <Row>
+              <Text style={reportLink}>
+                Auto messgae forwarding, made by Fatah RobbySalam
+              </Text>
+              <Link href="https://resend.com/emails" style={reportLink}>
+                Powered by Resend API
+              </Link>
+            </Row>
+          </Section>
+        </Container>
+      </Body>
+    </Html>
+  );
+};
 
 export default EmailTemplate;
 
 const main = {
   backgroundColor: "#ffffff",
   fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
 };
 
 const container = {
@@ -76,22 +95,35 @@ const container = {
   padding: "20px 0 48px",
 };
 
-const logo = {
+const userImage = {
   margin: "0 auto",
+  marginBottom: "16px",
+  borderRadius: "50%",
+};
+
+const heading = {
+  fontSize: "32px",
+  lineHeight: "1.3",
+  fontWeight: "700",
+  color: "#484848",
 };
 
 const paragraph = {
-  fontSize: "16px",
-  lineHeight: "26px",
+  fontSize: "18px",
+  lineHeight: "1.4",
+  color: "#484848",
 };
 
-const btnContainer = {
-  textAlign: "center",
+const review = {
+  ...paragraph,
+  padding: "24px",
+  backgroundColor: "#f2f3f3",
+  borderRadius: "4px",
 };
 
 const button = {
   backgroundColor: "#1b1b1b",
-  borderRadius: "3px",
+  borderRadius: "8px",
   color: "#fff",
   fontSize: "16px",
   textDecoration: "none",
@@ -100,12 +132,25 @@ const button = {
   padding: "12px",
 };
 
+const link = {
+  ...paragraph,
+  color: "#ff5a5f",
+  display: "block",
+};
+
+const reportLink = {
+  fontSize: "14px",
+  color: "#9ca299",
+  textDecoration: "underline",
+};
+
 const hr = {
   borderColor: "#cccccc",
   margin: "20px 0",
 };
 
 const footer = {
-  color: "#8898aa",
-  fontSize: "12px",
+  color: "#9ca299",
+  fontSize: "14px",
+  marginBottom: "10px",
 };
