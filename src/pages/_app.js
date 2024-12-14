@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
         <meta property="og:description" content={metaDescription} />
         <meta property="og:image" content={metaImage} />
         <meta property="og:title" content={metaTitle} />
-        <meta property="og:url" content={`https://fatahrobby-portfolio.vercel.app/${router.asPath}`} />
+        <meta property="og:url" content={`https://www.frobby.tech/${router.asPath}`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <main
