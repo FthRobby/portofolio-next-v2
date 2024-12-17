@@ -21,32 +21,32 @@ export default function App({ Component, pageProps }) {
     "https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg";
 
   useEffect(() => {
-    // trackVisit();
-    const trackVisit = async () => {
-      try {
-        const response = await fetch("/api/visit/get", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            page: window.location.pathname,
-            userAgent: navigator.userAgent,
-          }),
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log("Visit tracked:", data);
-      } catch (error) {
-        console.error("Error tracking visit:", error);
-      }
-    };
-
     trackVisit();
+    // const trackVisit = async () => {
+    //   try {
+    //     const response = await fetch("/api/visit/get", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({
+    //         page: window.location.pathname,
+    //         userAgent: navigator.userAgent,
+    //       }),
+    //     });
+
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP error! status: ${response.status}`);
+    //     }
+
+    //     const data = await response.json();
+    //     console.log("Visit tracked:", data);
+    //   } catch (error) {
+    //     console.error("Error tracking visit:", error);
+    //   }
+    // };
+
+    // trackVisit();
   }, []);
 
   const trackVisit = async () => {
