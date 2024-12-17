@@ -32,28 +32,25 @@ export default async function handler(req, res) {
       req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 
     try {
-      // Fetch IP information from ipinfo.io
       const response = await fetch(
         `https://ipinfo.io/${userIp}?token=${process.env.NEXT_PUBLIC_IPTOKEN}`
       );
 
-      // Check if the response is successful
       if (!response.ok) {
-        const errorMessage = await response.text(); // Get error details if response is not ok
+        const errorMessage = await response.text(); 
         throw new Error(
           `Error fetching IP info: ${response.status} ${response.statusText} - ${errorMessage}`
         );
       }
 
-      const data = await response.json(); // Parse the JSON data from the response
+      const data = await response.json(); 
 
-      // Insert data into Supabase if the IP info is successfully retrieved
       const { data: insertData, error } = await supabase
         .from("page_visits")
         .insert([
           {
             page,
-            user_ip: userIp,
+            user_ip: data.ip,
             user_agent: userAgent,
             timestamp: new Date(),
           },
@@ -63,13 +60,12 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: error.message });
       }
 
-      // Return success status along with data
       return res.status(200).json({
         status: "success",
       });
     } catch (error) {
       return res.status(500).json({
-        error: error.message, // Return the error message if something goes wrong
+        error: error.message,
       });
     }
   } else {
