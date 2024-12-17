@@ -24,9 +24,8 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   const trackVisit = async () => {
-    const ress = await fetch('/api/visit/get-ip')
+    const ress = await fetch('/api/visit/get')
     const data = await ress.json()
-    console.log('ip user : ', data)
 
     // try {
     //   const ipResponse = await fetch("https://api.ipify.org?format=json");
