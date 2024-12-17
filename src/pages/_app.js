@@ -32,15 +32,45 @@ export default function App({ Component, pageProps }) {
         },
         body: JSON.stringify({
           page: window.location.pathname,
-          userAgent: navigator.userAgent
-        })
+          userAgent: navigator.userAgent,
+        }),
       });
       const data = await ress.json();
-      console.log(data);
+
+      if (data) {
+        setTimeout(async() => {
+          await uploadData(window.location, data.data, navigator.userAgent);
+        }, 1000);
+      }
     } catch (error) {
       console.log(error);
     }
   };
+
+  const uploadData = async (page, ip, agent) => {
+    try {
+      const response = await fetch("/api/visit/track", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          page: page,
+          dataIp: ip,
+          userAgent: agent,
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+    } catch (error) {
+      console.error('Error uploading data:', error);
+    }
+  };
+  
 
   return (
     <>
