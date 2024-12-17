@@ -3,23 +3,12 @@ import { getUserIp } from "@/lib/getUser";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { page, userAgent } = req.body;
-    const userIp =
-      req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+    const { page, userIp, userAgent } = req.body;
     try {
-      const response = await fetch(
-        `https://ipinfo.io/${userIp}?token${process.env.NEXT_PUBLIC_IPTOKEN}`
-      );
-
-      if (!response.ok) {
-        throw new Error("failed fetch data");
-      }      
-      const dataIp = await response.json();
-
       const { data, error } = await supabase.from("page_visits").insert([
         {
           page,
-          user_ip: dataIp,
+          user_ip: userIp,
           user_agent: userAgent,
           timestamp: new Date(),
         },

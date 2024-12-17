@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import { Montserrat } from "next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { getUserIp } from "@/lib/getUser";
 
 // If loading a variable font, you don't need to specify the font weight
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-mont" });
@@ -20,38 +21,41 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     trackVisit();
-    // detect();  
   }, []);
 
   const trackVisit = async () => {
-    try {
-      const response = await fetch("/api/visit/track", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          page: window.location.pathname,
-          userAgent: navigator.userAgent,
-        }),
-      });
+    const ress = await fetch('/api/visit/get-ip')
+    const data = await ress.json()
+    console.log('ip user : ', data)
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-    } catch (error) {
-      console.error("Error tracking visit:", error);
-    }
+    // try {
+    //   const ipResponse = await fetch("https://api.ipify.org?format=json");
+    //   const ipData = await ipResponse.json();
+    //   const userIp = ipData.ip;
+
+    //   const ipInfoRess = await getUserIp(userIp);
+    //   const dataIp = await ipInfoRess;
+
+    //   const response = await fetch("/api/visit/track", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       page: window.location.pathname,
+    //       userIp: dataIp,
+    //       userAgent: navigator.userAgent,
+    //     }),
+    //   });
+
+    //   if (!response.ok) {
+    //     throw new Error(`HTTP error! status: ${response.status}`);
+    //   }
+    //   const data = await response.json();
+    // } catch (error) {
+    //   console.error("Error tracking visit:", error);
+    // }
   };
-
-  // async function detect() {
-  //   const ress = await fetch(
-  //     `https://ipinfo.io/114.10.151.199?token=6ef34f09dd5e57`
-  //   );
-  //   const jsonResponse = await ress.json();
-  //   console.log("res detect : ", jsonResponse);
-  // }
 
   return (
     <>
