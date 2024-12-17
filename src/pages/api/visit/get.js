@@ -1,24 +1,20 @@
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     const userIp = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
-    
-    const {dataGet, errorGet} = await fetch('https://api.ipify.org?format=json')
-    
-    const {infoGet, infoError} = await fetch(`https://ipinfo.io/${userIp}?token=${process.env.NEXT_PUBLIC_IPTOKEN}`)
+    const response = await fetch(`https://ipinfo.io/${userIp}?token=${process.env.NEXT_PUBLIC_IPTOKEN}`)
 
-
-    
-    
-    
-    
-    if (infoError) {
-      return res.status(500).json({ error: infoError.message })
+    // Check if the response is successful
+    if (!response.ok) {
+      const errorMessage = await response.text(); // Get error details if response is not ok
+      throw new Error(`Error fetching IP info: ${response.status} ${response.statusText} - ${errorMessage}`);
     }
 
+    const data = await response.json(); // Parse the JSON data from the response
 
-
-    return res.status(200).json({ status: 'success', data: infoGet })
-
+    return res.status(200).json({
+      status: 'success',
+      data, // Send the data received from ipinfo.io
+    });
   } else {
     return res.status(405).json({
       message: 'Method Not Allowed'
