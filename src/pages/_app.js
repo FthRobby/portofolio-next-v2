@@ -7,6 +7,7 @@ import { Montserrat } from "next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { getUserIp } from "@/lib/getUser";
+import fetch from "node-fetch";
 
 // If loading a variable font, you don't need to specify the font weight
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-mont" });
@@ -20,6 +21,31 @@ export default function App({ Component, pageProps }) {
     "https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg";
 
   useEffect(() => {
+    // trackVisit();
+    const trackVisit = async () => {
+      try {
+        const response = await fetch("/api/visit/get", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            page: window.location.pathname,
+            userAgent: navigator.userAgent,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Visit tracked:", data);
+      } catch (error) {
+        console.error("Error tracking visit:", error);
+      }
+    };
+
     trackVisit();
   }, []);
 
@@ -38,7 +64,7 @@ export default function App({ Component, pageProps }) {
       const data = await ress.json();
 
       if (data) {
-        setTimeout(async() => {
+        setTimeout(async () => {
           await uploadData(window.location, data.data, navigator.userAgent);
         }, 1000);
       }
@@ -60,17 +86,16 @@ export default function App({ Component, pageProps }) {
           userAgent: agent,
         }),
       });
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       const data = await response.json();
     } catch (error) {
-      console.error('Error uploading data:', error);
+      console.error("Error uploading data:", error);
     }
   };
-  
 
   return (
     <>
