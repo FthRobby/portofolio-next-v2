@@ -45,23 +45,24 @@ export default async function handler(req, res) {
 
       const data = await response.json(); 
 
-      const { data: insertData, error } = await supabase
-        .from("page_visits")
-        .insert([
-          {
-            page,
-            user_ip: data.ip,
-            user_agent: userAgent,
-            timestamp: new Date(),
-          },
-        ]);
+      // const { data: insertData, error } = await supabase
+      //   .from("page_visits")
+      //   .insert([
+      //     {
+      //       page,
+      //       user_ip: data.ip,
+      //       user_agent: userAgent,
+      //       timestamp: new Date(),
+      //     },
+      //   ]);
 
-      if (error) {
-        return res.status(500).json({ error: error.message });
-      }
+      // if (error) {
+      //   return res.status(500).json({ error: error.message });
+      // }
 
       return res.status(200).json({
         status: "success",
+        data
       });
     } catch (error) {
       return res.status(500).json({
