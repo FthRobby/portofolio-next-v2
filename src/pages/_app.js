@@ -25,44 +25,21 @@ export default function App({ Component, pageProps }) {
 
   const trackVisit = async () => {
     try {
-      const ress = await fetch('/api/visit/get')
-      const data = await ress.json()
-      console.log(data)
+      const ress = await fetch("/api/visit/get", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          page: window.location.pathname,
+          userAgent: navigator.userAgent
+        })
+      });
+      const data = await ress.json();
+      console.log(data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-   
-    // const ress = await fetch('/api/visit/get')
-    // const data = await ress.json()
-    // console.log('data : ', data.data)
-
-    // try {
-    //   const ipResponse = await fetch("https://api.ipify.org?format=json");
-    //   const ipData = await ipResponse.json();
-    //   const userIp = ipData.ip;
-
-    //   const ipInfoRess = await getUserIp(userIp);
-    //   const dataIp = await ipInfoRess;
-
-    //   const response = await fetch("/api/visit/track", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       page: window.location.pathname,
-    //       userIp: dataIp,
-    //       userAgent: navigator.userAgent,
-    //     }),
-    //   });
-
-    //   if (!response.ok) {
-    //     throw new Error(`HTTP error! status: ${response.status}`);
-    //   }
-    //   const data = await response.json();
-    // } catch (error) {
-    //   console.error("Error tracking visit:", error);
-    // }
   };
 
   return (
