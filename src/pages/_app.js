@@ -24,17 +24,38 @@ export default function App({ Component, pageProps }) {
   },[])
 
   const trackVisit = async () => {
-    const userAgent = navigator.userAgent
-    await fetch('/api/visit/track',{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        page: window.location.pathname,
-        userAgent,
-      })
-    })
+    // const userAgent = navigator.userAgent
+    // await fetch('/api/visit/track',{
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     page: window.location.pathname,
+    //     userAgent,
+    //   })
+    // })
+    try {
+      const response = await fetch('/api/visit/track', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          page: window.location.pathname,
+          userAgent: navigator.userAgent,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Visit tracked successfully:', data);
+    } catch (error) {
+      console.error('Error tracking visit:', error);
+    }
   }
 
   return (
