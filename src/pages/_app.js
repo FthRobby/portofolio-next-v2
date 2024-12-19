@@ -17,36 +17,10 @@ export default function App({ Component, pageProps }) {
 
   const metaDescription = "My personal website. Build using Next Js";
   const metaTitle = "Fatah Robby";
-  const metaImage =
-    "https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg";
+  const metaImage = "https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg";
 
   useEffect(() => {
     trackVisit();
-    // const trackVisit = async () => {
-    //   try {
-    //     const response = await fetch("/api/visit/get", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({
-    //         page: window.location.pathname,
-    //         userAgent: navigator.userAgent,
-    //       }),
-    //     });
-
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
-
-    //     const data = await response.json();
-    //     console.log("Visit tracked:", data);
-    //   } catch (error) {
-    //     console.error("Error tracking visit:", error);
-    //   }
-    // };
-
-    // trackVisit();
   }, []);
 
   const trackVisit = async () => {
@@ -63,37 +37,8 @@ export default function App({ Component, pageProps }) {
       });
       const data = await ress.json();
 
-      if (data) {
-        setTimeout(async () => {
-          await uploadData(window.location, data.data, navigator.userAgent);
-        }, 1000);
-      }
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const uploadData = async (page, ip, agent) => {
-    try {
-      const response = await fetch("/api/visit/track", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          page: page,
-          dataIp: ip,
-          userAgent: agent,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-    } catch (error) {
-      console.error("Error uploading data:", error);
     }
   };
 
