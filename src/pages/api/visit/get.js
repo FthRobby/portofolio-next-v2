@@ -2,9 +2,14 @@ import supabase from "@/lib/supabase";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
+    if (!req.headers['x-requested-with'] || req.headers['x-requested-with'] !== 'XMLHttpRequest') {
+      return res.status(403).json({
+        status: 'error',
+        message: "Ooopss, you are not allowed to access this endpoint directly 🗿",
+      });
+    }    
     const { page, userAgent } = req.body;
-    const userIp =
-      req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+    const userIp = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
     try {
       const { data: existingRecord, error: selectError } = await supabase
         .from("page_visits")
