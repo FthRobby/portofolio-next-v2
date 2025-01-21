@@ -90,16 +90,23 @@ export default function About() {
                 of important projects that challenged and broadened my skill
                 set. My technical expertise includes HTML, CSS, JavaScript,
                 TypeScript, Vue.js, React, React Native, and many other
-                technologies. One of my notable projects was the development of
-                a comprehensive online presence platform that simplifies the
-                user experience. Another project that I am very proud of
-                involved creating an interactive web application to monitor
-                livestock conditions, regulate temperature, and record milk
-                yields on a goat farm, integrated with the IoT team.
+                technologies.
               </p>
               <p className="my-4 font-medium">
-                P.s I'm a big fan of motorcycle and not a real person ✌️.
+                One of my most notable projects was the development of a
+                comprehensive online attendance platform designed to streamline
+                the user experience. This online attendance application is
+                officially used by a government institution, namely the
+                Indonesian National Police, and is implemented within the East
+                Java Regional Police Department. Another project that I am
+                particularly proud of involved creating an interactive web
+                application for monitoring livestock conditions, regulating
+                temperature, and recording milk production on a goat farm,
+                integrated seamlessly with the IoT team.
               </p>
+              {/* <p className="my-4 font-medium">
+                P.s I'm a big fan of motorcycle and not a real person ✌️.
+              </p> */}
             </div>
             <div
               className="relative col-span-3 h-max rounded-2xl xl:col-span-4 md:col-span-8 md:order-1
