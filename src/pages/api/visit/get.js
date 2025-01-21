@@ -7,10 +7,30 @@ export default async function handler(req, res) {
     //     status: 'error',
     //     message: "Ooopss, you are not allowed to access this endpoint directly 🗿",
     //   });
-    // }    
+    // }
+    const getTime = new Date().toLocaleString();
+    const message = `*Hey this is kenzo\\!* 🤖\n\n*👥 A new visitor just checked out your page\\!* \n*🕓 When ?* ${getTime.replace(/[.-]/g, "\\$&")}\n\n*See details in this page *[here](https://dashboard\\.frobby\\.tech/)`;
+
     const { page, userAgent } = req.body;
-    const userIp = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+    const userIp =
+      req.headers["x-forwarded-for"] || req.connection.remoteAddress;
     try {
+      await fetch(
+        `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELEGRAM_TOKEN}/sendMessage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            chat_id: process.env.NEXT_PUBLIC_CHAT_ID,
+            text: message,
+            parse_mode: "MarkdownV2",
+            type: "private",
+          }),
+        }
+      );
+
       const { data: existingRecord, error: selectError } = await supabase
         .from("page_visits")
         .select()
