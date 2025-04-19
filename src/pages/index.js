@@ -7,6 +7,7 @@ import Link from "next/link";
 import TransitionEffect from "@/components/TransitionEffect";
 import profilePic from "../../public/images/profile/itsme.jpg";
 import TechIcon from "@/components/TechIcon";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Home() {
   return (
@@ -44,18 +45,34 @@ export default function Home() {
                 className="!text-left !text-6xl xl:!text-5xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl"
               />
               <div className="flex w-full items-center lg:w-full  lg:!justify-center  sm:!justify-center  md:!text-center md:inline-block md:w-full">
-                <h2 className="animate-text bg-gradient-to-r from-lightGreen via-lightGreen to-slideGreen bg-clip-text text-transparent font-semibold capitalize !text-5xl xl:!text-4xl lg:!text-4xl md:!text-5xl sm:!text-3xl">
-                  I create engaging web and mobile apps experiences.
-                </h2>
+                <span className="bg-gradient-to-r from-lightGreen via-lightGreen to-slideGreen bg-clip-text text-transparent font-semibold capitalize !text-5xl xl:!text-4xl lg:!text-4xl md:!text-5xl sm:!text-3xl">
+                  <Typewriter
+                    words={[
+                      "I'm a Frontend Developer.",
+                      "I create engaging web and mobile apps experiences.",
+                    ]}
+                    loop={100}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={100}
+                    deleteSpeed={100}
+                    delaySpeed={2000}
+                    cursorColor="#e5a630"
+                  />
+                </span>
               </div>
 
               <TechIcon />
 
               <p className="my-4 text-base font-medium md:text-sm sm:!text-sm">
-                I'm a front-end developer, passionate about creating dynamic and
+                {/* I'm a front-end developer, passionate about creating dynamic and
                 user-friendly web and mobile apps experiences. With a keen eye
                 for design and a robust understanding of multiplatform front-end
-                technologies, e.g. (Expo)
+                technologies, e.g. (Expo) */}
+                I'm passionate about building mobile-first, cross-platform apps
+                that not only look great but work flawlessly. I enjoy solving
+                problems creatively, collaborating with teams, and focusing on
+                performance to deliver smooth, user-friendly experiences.
               </p>
               <div className="mt-2 flex items-center self-start gap-3 grid-cols-2 lg:self-center">
                 <Link
@@ -84,21 +101,6 @@ export default function Home() {
             </div>
           </div>
         </Layout>
-
-        {/* home footer index */}
-
-        {/* <div className="fixed right-8 bottom-8 inline-block md:hidden">
-          <iframe
-            className="iframe"
-            title="Noongar Seasonal Calendar"
-            width="280"
-            height="120"
-            src="https://seasonal-au.netlify.app/"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-        </div> */}
-        {/* <HireMe /> */}
       </article>
     </>
   );

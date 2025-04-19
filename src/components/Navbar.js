@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "./Logo";
 import { useRouter } from "next/router";
 import {
@@ -9,9 +9,12 @@ import {
   LinkedInIcon,
   MoonIcon,
   SunIcon,
+  IdnFlagIcon,
+  EngFlagIcon,
 } from "./Icons";
 import { motion } from "framer-motion";
 import { useThemeSwitch } from "./Hooks/useThemeSwitch";
+// import useLanguageSwitch  from "./Hooks/useLanguageSwith";
 
 const CustomLink = ({ href, title, className = "", target }) => {
   const router = useRouter();
@@ -38,7 +41,7 @@ const CustomMobileLink = ({ href, title, className = "", toggle, target }) => {
   const handleClick = () => {
     toggle();
     router.push(href);
-    target
+    target;
   };
 
   return (
@@ -64,6 +67,8 @@ const CustomMobileLink = ({ href, title, className = "", toggle, target }) => {
 
 const Navbar = () => {
   const [mode, setMode] = useThemeSwitch();
+  const [isChanged, setIsChanged] = useState(false)
+  // const {isChanged, onFlagPressed} = useLanguageSwitch()
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -107,11 +112,17 @@ const Navbar = () => {
           <CustomLink className="mx-4" href="/about" title="About" />
           <CustomLink className="mx-4" href="/projects" title="Projects" />
           <CustomLink className="mx-4" href="/contact" title="Contact" />
-          <CustomLink className="mx-4" href="https://tips.frobby.tech/" title="Tips" />
+          {/* <CustomLink className="mx-4" href="https://tips.frobby.tech/" title="Tips" /> */}
 
           {/* <CustomLink className="ml-4" href="/articles" title="Articles" /> */}
         </nav>
         <nav className="flex items-center justify-center flex-wrap lg:mt-2 gap-3">
+          {/* <motion.div>
+            <button onClick={() => setIsChanged(!isChanged)}>
+              {isChanged ? <EngFlagIcon /> : <IdnFlagIcon />}
+            </button>
+          </motion.div> */}
+
           <motion.a
             target={"_blank"}
             className="w-7"
@@ -122,37 +133,6 @@ const Navbar = () => {
           >
             <GithubIcon />
           </motion.a>
-
-          {/* <motion.a
-            target={"_blank"}
-            className="w-7 mx-3 bg-light rounded-full"
-            href="https://medium.com/@travis.lord"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Checkout my Medium profile"
-          >
-            <MediumIcon />
-          </motion.a> */}
-
-          {/* <motion.a
-            target={"_blank"}
-            className="w-7 mx-3"
-            href="https://dev.to/lilxyzz"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Checkout my Dev.to profile"
-          >
-            <DevIcon />
-          </motion.a> */}
-
-          {/* <motion.a
-            target={"_blank"}
-            className="w-7 mx-3"
-            href="https://dev.to/lilxyzz"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="My Dev.to profile"
-          ></motion.a> */}
 
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
@@ -208,23 +188,11 @@ const Navbar = () => {
               href="/projects"
               title="Projects"
             />
-            {/* <CustomMobileLink
-              toggle={handleClick}
-              className="ml-4 lg:m-0 lg:my-2"
-              href="/articles"
-              title="Articles"
-            /> */}
             <CustomMobileLink
               toggle={handleClick}
               className="ml-4 lg:m-0 lg:my-2"
               href="/contact"
               title="Contact"
-            />
-            <CustomMobileLink
-              toggle={handleClick}
-              className="ml-4 lg:m-0 lg:my-2"
-              href="https://tips.frobby.tech/"
-              title="Tips & Trick"
             />
             <a
               download
@@ -250,35 +218,6 @@ const Navbar = () => {
             >
               <GithubIcon />
             </motion.a>
-
-            {/* <motion.a
-              target={"_blank"}
-              className="w-6 mx-3 bg-light rounded-full"
-              href="https://medium.com/@travis.lord"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Checkout my Medium profile"
-            >
-              <MediumIcon />
-            </motion.a> */}
-            {/* <motion.a
-              target={"_blank"}
-              className="w-6 mx-3"
-              href="https://dev.to/lilxyzz"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Checkout my Dev.to profile"
-            >
-              <DevIcon />
-            </motion.a> */}
-            {/* <motion.a
-              target={"_blank"}
-              className="w-6 mx-3"
-              href="https://dev.to/lilxyzz"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="My Dev.to profile"
-            ></motion.a> */}
 
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}

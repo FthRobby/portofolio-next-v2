@@ -20,15 +20,33 @@ import proj1 from "/public/images/projects/ePresensiSemeru.jpg";
 const EpresensiSemeru = () => {
   return (
     <>
+      {/* <div className="p-32 xl:p-24 lg:p-16 md:p-12 sm:p-8">
+        <a
+          className="p-2 px-6 text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+                    dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+                      md:p-2 md:px-4 md:text-base  w-full text-center"
+          aria-label="back"
+          href=""
+          target={"_blank"}
+        ></a>
+      </div> */}
       <Head>
         <title>ePresensi Semeru</title>
         <meta name="description" content="ePresensi Semeru." />
       </Head>
       <TransitionEffect />
       <main
-        className={`flex  w-full flex-col items-center justify-center dark:text-light`}
+        className={`flex  w-full flex-col items-center justify-center dark:text-light `}
       >
-        <Layout className="pt-16">
+        <Layout className="pt-10">
+          <a
+            className="p-2 px-6 text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+                    dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+                      md:p-2 md:px-4 md:text-base  w-full text-center"
+            aria-label="back"
+            href=""
+            target={"_blank"}
+          >Back</a>
           <AnimatedText
             text="e-Presensi Semeru"
             className="mb-16 !text-8xl !leading-tight lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
@@ -88,7 +106,6 @@ const EpresensiSemeru = () => {
                   Visit Demo
                 </Link>
               </div>
-
             </div>
             <div
               className="relative col-span-4 h-max rounded-2xl border-2 border-solid border-dark 
