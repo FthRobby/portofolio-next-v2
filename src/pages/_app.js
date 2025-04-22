@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps, locale, messages }) {
     "https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg";
 
   useEffect(() => {
-    // trackVisit();
+    trackVisit();
   }, []);
 
   const trackVisit = async () => {
