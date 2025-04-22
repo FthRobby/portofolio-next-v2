@@ -1,14 +1,16 @@
 import Link from "next/link";
 import React from "react";
 import Layout from "./Layout";
+import { useTranslation } from "context/TranslationContext";
 
 const Footer = () => {
+  const { t } = useTranslation('footer')
   return (
     <footer className="w-full border-t-0 border-solid border-dark font-base text-lg dark:text-light dark:border-light sm:text-base">
       <Layout className="py-8 flex items-center justify-center lg:flex-col lg:py-6">
         <div>
           <div className="flex items-center justify-center lg:py-2">
-            &nbsp;Made with
+            &nbsp;{t('footer.title')}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -23,7 +25,7 @@ const Footer = () => {
                 d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
               />
             </svg>
-            <p className="ml-1">and</p>
+            <p className="ml-1">{t('footer.subtitle')}</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

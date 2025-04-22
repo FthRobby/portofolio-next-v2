@@ -1,0 +1,52 @@
+{
+  "navbar" : {
+    "home": "Beranda",
+    "about": "Tentang Saya",
+    "projects": "Portofolio",
+    "contacts": "Kontak",
+    "resume": "Unduh Resume"
+  },
+  "home": {
+    "greeting": "Halo, Saya Robby",
+    "role": "Saya seorang Frontend Developer",
+    "description": "Saya membuat pengalaman aplikasi web dan mobile yang menarik.",
+    "about": "Saya memiliki ketertarikan yang mendalam dalam mengembangkan aplikasi mobile-first dan lintas platform yang tidak hanya memiliki tampilan menarik, tetapi juga berfungsi dengan optimal. Saya senang menyelesaikan masalah dengan pendekatan kreatif, bekerja sama dalam tim, serta fokus pada kinerja untuk menghasilkan pengalaman pengguna yang mulus dan ramah.",
+    "aboutButton": "Tentang Saya",
+    "projectButton": "Portofolio"
+  },
+  "about": {
+    "summary": "Kenalan Dulu, Yuk! 👋",
+    "title": "BIOGRAFI",
+    "firstParagraph": "Saya Fatah RobbySalam, seorang front-end developer yang fokus dalam menciptakan pengalaman aplikasi web dan mobile yang dinamis serta berpusat pada pengguna. Dengan pengalaman sekitar 2 tahun di industri ini, saya telah mengasah keterampilan dalam pengembangan front-end, baik untuk web maupun mobile, menggunakan teknologi multiplatform. Hal ini memungkinkan saya untuk menghadirkan situs dan aplikasi yang responsif serta memiliki performa tinggi.",
+    "secondParagraph": "Di Fortis Solution, saya mendapatkan kesempatan untuk mengerjakan berbagai proyek penting yang menantang dan memperluas keterampilan saya. Keahlian teknis saya meliputi HTML, CSS, JavaScript, TypeScript, Vue.js, React, React Native, dan teknologi front-end lainnya.",
+    "thirdParagraph": "Salah satu proyek paling berkesan yang pernah saya kerjakan adalah pengembangan platform absensi online yang komprehensif untuk menyederhanakan pengalaman pengguna. Aplikasi absensi online ini secara resmi digunakan oleh institusi pemerintahan, yaitu Kepolisian Negara Republik Indonesia, dan telah diimplementasikan di lingkungan Kepolisian Daerah Jawa Timur. Proyek lain yang juga sangat saya banggakan adalah pembuatan aplikasi web interaktif untuk memantau kondisi ternak, mengatur suhu, dan mencatat produksi susu pada peternakan kambing, yang terintegrasi secara mulus dengan tim IoT.",
+    "daysCoding": "Hari Ngoding",
+    "bugsMade": "Bug Dibuat",
+    "bugsCrushed": "Bug Dihancurkan",
+    "skills": "Skills",
+    "experience": "Pengalaman Kerja"
+  },
+  "experiences": {
+    "fortis": "Di Fortis Solution, saya bekerja sebagai pengembang frontend untuk platform web dan mobile. Tanggung jawab saya mencakup menyajikan website yang responsif dan berkinerja tinggi. Untuk aplikasi web, saya menggunakan teknologi seperti Vue.js, Bootstrap, dan Tailwind. Untuk aplikasi mobile, saya memanfaatkan teknologi cross-platform seperti React Native dan Expo. Saya bekerja sama dengan tim UI/UX untuk menciptakan aplikasi yang mampu menjawab permasalahan dan permintaan klien, serta memastikan proyek yang dihasilkan memiliki standar tinggi, baik dari segi fungsi maupun pengalaman pengguna. Pekerjaan saya didorong oleh semangat untuk terus belajar dan berinovasi, selalu berusaha untuk mendorong batas dari apa yang mungkin dilakukan dalam pengembangan web dan mobile.",
+    "dicoding" : "Dicoding adalah platform edukasi teknologi yang membantu mencetak talenta digital berstandar global, guna mempercepat kemajuan Indonesia ke level terdepan. Di Dicoding, saya bertugas untuk memandu, membantu, dan menjaga lingkungan belajar yang kondusif dan aman bagi seluruh peserta bootcamp, serta memberikan dukungan belajar secara konsultatif kepada siswa. Saya menjunjung tinggi nilai kejujuran dan integritas, dengan tidak membagikan kode maupun terlibat dalam bentuk plagiarisme apa pun kepada siswa, khususnya terkait tugas, proyek, dan pengumpulan selama proses pembelajaran.",
+    "git": "Di Gits Solutions, saya bekerja sebagai intern pengembang web front-end. Ini adalah awal dari perjalanan saya sebagai seorang programmer, di mana saya belajar bagaimana website dinamis dibuat, bekerja sama dalam tim, dan mengasah kemampuan berpikir logis. Saya fokus pada teknologi front-end, khususnya Vue.js. Pada akhir program, saya dan tim berkolaborasi dalam proyek akhir berupa sistem Point of Sale (PoS).",
+    "viewProjects": "Lihat Portofolio"
+  },
+  "projects": {
+    "summary": "🚀 Kode x Desain — Karyaku ✨"
+  },
+  "contacts": {
+    "summary": "Silakan hubungi saya kapan saja. 💬📑",
+    "title": "Apa yang berikutnya?",
+    "subtitle": "Kotak masuk saya selalu terbuka! Baik itu pertanyaan atau sekadar ingin menyapa, saya akan segera merespon. Jangan ragu untuk mengirim pesan kapan saja dengan pembaruan atau hal lainnya!",
+    "name": "Nama Anda",
+    "email": "Email Anda",
+    "msg": "Pesan",
+    "send": "Kirim Sekarang!",
+    "isSend": "Mengirim...."
+  },
+  "footer": {
+    "title": "Dibuat dengan",
+    "subtitle": "dan"
+  }
+}

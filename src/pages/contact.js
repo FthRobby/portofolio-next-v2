@@ -5,8 +5,10 @@ import AnimatedText from "@/components/AnimatedText";
 import TransitionEffect from "@/components/TransitionEffect";
 import toast, { Toaster } from "react-hot-toast";
 import { useThemeSwitch } from "@/components/Hooks/useThemeSwitch";
+import { useTranslation } from "context/TranslationContext";
 
 export default function About() {
+  const { t } = useTranslation('contacts')
   const [mode] = useThemeSwitch();
   const [formData, setFormData] = useState({
     name: "",
@@ -111,7 +113,7 @@ export default function About() {
       >
         <Layout className="pt-16">
           <AnimatedText
-            text="Begin Today, I'm One Message Away 👋"
+            text={t('contacts.summary')}
             className="mb-16 !text-8xl !leading-tight lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
           />
 
@@ -120,14 +122,12 @@ export default function About() {
             <div className="absolute top-0 -right-5 -z-10 h-[103%] w-[101.5%] rounded-[2rem] rounded-br-3xl bg-dark dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]" />
             <div className="col-span-4 flex flex-col items-start justify-start xl:col-span-4 md:order-1 md:col-span-8">
               <h2 className="my-4 text-2xl font-bold capitalize text-lightGreen dark:text-lightGreen">
-                What’s Next?
+               {t('contacts.title')}
               </h2>
 
               <div className="w-full"></div>
               <p className="">
-                My inbox is always open. Whether you have a question or just
-                want to say hello, I'll try my best to get back to you! Feel
-                free to message me about any relevant project updates.
+                {t('contacts.subtitle')}
               </p>
             </div>
             <div className="relative col-span-4 h-max xl:col-span-4 md:col-span-8 md:order-2">
@@ -152,7 +152,7 @@ export default function About() {
 
                     <div className="col-span-1 p-2">
                       <label className="block text-sm font-medium text-dark dark:text-light">
-                        Your Name:
+                        {t('contacts.name')}:
                         <input
                           type="text"
                           name="name"
@@ -167,7 +167,7 @@ export default function About() {
 
                     <div className="col-span-1 p-2">
                       <label className="block text-sm font-medium text-dark/75 dark:text-light">
-                        Your Email:
+                        {t('contacts.email')}:
                         <input
                           type="email"
                           name="email"
@@ -185,7 +185,7 @@ export default function About() {
                         htmlFor="body"
                         className="block text-sm font-medium text-dark/75 dark:text-light"
                       >
-                        Message:
+                        {t('contacts.msg')}:
                         <textarea
                           name="body"
                           id="body"
@@ -204,7 +204,7 @@ export default function About() {
                         className="px-4 py-2 font-bold capitalize text-light bg-dark border-2 border-solid border-dark dark:border-light dark:bg-light rounded-md hover:bg-transparent hover:text-dark dark:hover:text-light dark:hover:bg-dark dark:hover:border-light  dark:text-dark"
                         disabled={isSubmitting}
                       >
-                        {isSubmitting ? "Submitting..." : "Send it!"}
+                        {isSubmitting ? t('contacts.isSend') : t('contacts.send')}
                       </button>
                     </div>
 

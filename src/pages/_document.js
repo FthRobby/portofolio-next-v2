@@ -1,27 +1,35 @@
-import { Html, Head, Main, NextScript } from "next/document";
-import Script from "next/script";
+import { Html, Head, Main, NextScript } from 'next/document'
 
-export default function Document() {
+export default function Document({ locale }) {
   return (
-    <Html lang="en-AU">
+    <Html lang={locale}>
       <Head />
       <body className="bg-light dark:bg-dark">
-        <Script id="theme-switcher" strategy="beforeInteractive">
-          {`
- if (
-  localStorage.getItem('theme') === 'dark' ||
-  (!('theme' in localStorage) &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches)
-) {
-  document.documentElement.classList.add('dark');
-} else {
-  document.documentElement.classList.remove('dark');
-}
-  `}
-        </Script>
+        <script
+          id="theme-switcher"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (
+                localStorage.getItem('theme') === 'dark' ||
+                (!('theme' in localStorage) &&
+                  window.matchMedia('(prefers-color-scheme: dark)').matches)
+              ) {
+                document.documentElement.classList.add('dark');
+              } else {
+                document.documentElement.classList.remove('dark');
+              }
+            `,
+          }}
+        />
         <Main />
         <NextScript />
       </body>
     </Html>
-  );
+  )
+}
+
+// 👇 Get the locale from the context (Next.js passes it automatically)
+Document.getInitialProps = async (ctx) => {
+  const initialProps = await ctx.defaultGetInitialProps(ctx)
+  return { ...initialProps, locale: ctx.locale }
 }

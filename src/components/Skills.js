@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useRef } from "react";
+import { useTranslation } from "context/TranslationContext";
 
 const Skill = ({ name, x, y }) => {
   const ref = useRef(null);
@@ -22,10 +23,11 @@ const Skill = ({ name, x, y }) => {
 
 const Skills = () => {
   const ref = useRef(null);
+  const { t } = useTranslation('about')
   return (
     <>
       <h2 className="font-bold text-8xl mt-64 w-full text-center md:text-6xl md:mt-32">
-        Skills
+        {t('about.skills')}
       </h2>
       <div
         ref={ref}

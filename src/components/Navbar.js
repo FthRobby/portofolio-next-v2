@@ -14,13 +14,15 @@ import {
 } from "./Icons";
 import { motion } from "framer-motion";
 import { useThemeSwitch } from "./Hooks/useThemeSwitch";
-// import useLanguageSwitch  from "./Hooks/useLanguageSwith";
+import { useTranslation } from "context/TranslationContext";
 
 const CustomLink = ({ href, title, className = "", target }) => {
   const router = useRouter();
+ 
 
   return (
     <Link
+      locale={router.locale}
       href={href}
       className={`${className}  rounded relative group lg:text-light lg:dark:text-dark`}
       target={target}
@@ -66,18 +68,40 @@ const CustomMobileLink = ({ href, title, className = "", toggle, target }) => {
 };
 
 const Navbar = () => {
+  const { t } = useTranslation("navbar")
+  const router = useRouter();
   const [mode, setMode] = useThemeSwitch();
-  const [isChanged, setIsChanged] = useState(false)
-  // const {isChanged, onFlagPressed} = useLanguageSwitch()
   const [isOpen, setIsOpen] = useState(false);
+  
+  const currentLocale = router.locale;
+  const currentFlag = router.locale;
+  const [isChanged, setIsChanged] = useState(currentLocale === "id");
 
+  useEffect(() => {
+    setIsChanged(currentLocale === "id");
+  }, [currentLocale]);
+
+  // change locale
+  const toggleLocale = () => {
+    const newLocale = currentLocale === "en" ? "id" : "en";
+    router.push(
+      {
+        pathname: router.pathname,
+        query: router.query,
+      },
+      undefined,
+      { locale: newLocale }
+    );
+  };
+
+  // open navbar mobile
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <header
-      className="w-full flex items-center justify-between px-32 pt-10 pb-8 font-medium dark:text-light
+      className="w-full flex items-center justify-between px-32 pt-[1.5rem] lg:pt-10 pb-8 font-medium dark:text-light
     lg:px-16 relative z-1 md:px-12 sm:px-8
     "
     >
@@ -108,20 +132,20 @@ const Navbar = () => {
 
       <div className="w-full flex justify-between items-center lg:hidden">
         <nav className="flex items-center justify-center">
-          <CustomLink className="mr-4" href="/" title="Home" />
-          <CustomLink className="mx-4" href="/about" title="About" />
-          <CustomLink className="mx-4" href="/projects" title="Projects" />
-          <CustomLink className="mx-4" href="/contact" title="Contact" />
+          <CustomLink className="mr-4" href="/" title={t('navbar.home')} />
+          <CustomLink className="mx-4" href="/about" title={t('navbar.about')} />
+          <CustomLink className="mx-4" href="/projects" title={t('navbar.projects')} />
+          <CustomLink className="mx-4" href="/contact" title={t('navbar.contacts')} />
           {/* <CustomLink className="mx-4" href="https://tips.frobby.tech/" title="Tips" /> */}
 
           {/* <CustomLink className="ml-4" href="/articles" title="Articles" /> */}
         </nav>
         <nav className="flex items-center justify-center flex-wrap lg:mt-2 gap-3">
-          {/* <motion.div>
-            <button onClick={() => setIsChanged(!isChanged)}>
-              {isChanged ? <EngFlagIcon /> : <IdnFlagIcon />}
+          <motion.div>
+            <button onClick={toggleLocale} key={router.locale}>
+              {currentLocale === "en" ? <EngFlagIcon /> : <IdnFlagIcon />}
             </button>
-          </motion.div> */}
+          </motion.div>
 
           <motion.a
             target={"_blank"}
@@ -156,7 +180,7 @@ const Navbar = () => {
             dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
             md:p-2 md:px-4 md:text-base"
           >
-            Download Resume
+            {t('navbar.resume')}
           </a>
         </nav>
       </div>
@@ -236,9 +260,20 @@ const Navbar = () => {
         </motion.div>
       ) : null}
 
-      <div className="absolute left-[50%] top-2 translate-x-[-50%] ">
+      <div className="absolute left-[50%]  translate-x-[-50%] ">
         <Logo />
       </div>
+
+      {/* make this is in right and just display when mobile screens */}
+      <div className="flex-col items-center justify-center hidden lg:flex z-9">
+        <motion.div>
+          <button onClick={toggleLocale} key={router.locale}>
+            {currentLocale === "en" ? <EngFlagIcon /> : <IdnFlagIcon />}
+          </button>
+        </motion.div>
+      </div>
+
+      
     </header>
   );
 };

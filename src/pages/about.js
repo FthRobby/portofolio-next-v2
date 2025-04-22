@@ -9,6 +9,7 @@ import Experience from "@/components/Experience";
 import AnimatedText from "@/components/AnimatedText";
 import TransitionEffect from "@/components/TransitionEffect";
 import { HireMe2 } from "@/components/HireMe2";
+import { useTranslation } from "context/TranslationContext";
 
 function AnimatedNumberFramerMotion({ value }) {
   const ref = useRef(null);
@@ -35,6 +36,7 @@ function AnimatedNumberFramerMotion({ value }) {
 }
 
 export default function About() {
+  const { t } = useTranslation('about')
   return (
     <>
       <Head>
@@ -48,7 +50,7 @@ export default function About() {
       >
         <Layout className="pt-16">
           <AnimatedText
-            text="Never Stop Learning"
+            text={t('about.summary')}
             className="mb-16 !text-8xl !leading-tight lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
           />
 
@@ -58,7 +60,7 @@ export default function About() {
             md:col-span-8"
             >
               <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">
-                BIOGRAPHY
+                {t('about.title')}
               </h2>
               <p className="font-medium ">
                 {/* I'm Riley, a dedicated web developer at Stellar Innovations,
@@ -67,13 +69,14 @@ export default function About() {
                 have honed my skills in both front-end and back-end
                 technologies, allowing me to deliver responsive and
                 high-performance websites and applications. */}
-                I'm Fatah RobbySalam, a front-end developer at Fortis Solutions,
+                {/* I'm Fatah RobbySalam, a front-end developer at Fortis Solutions,
                 where I specialize in creating dynamic and user-centric web and
                 mobile app experiences. With approximately 2 years of experience
                 in this industry, I have honed my skills in both front-end web
                 and mobile development using multiplatform technologies,
                 allowing me to deliver responsive and high-performance websites
-                and applications.
+                and applications. */}
+                {t('about.firstParagraph')}
               </p>
               <p className="my-4 font-medium">
                 {/* At Fortis Solutions, I've had the opportunity to work on
@@ -86,14 +89,15 @@ export default function About() {
                 particularly proud of was creating an interactive web
                 application for a major event, which received widespread acclaim
                 for its intuitive design and seamless performance. */}
-                At Fortis Solution, I had the opportunity to work on a variety
+                {/* At Fortis Solution, I had the opportunity to work on a variety
                 of important projects that challenged and broadened my skill
                 set. My technical expertise includes HTML, CSS, JavaScript,
                 TypeScript, Vue.js, React, React Native, and many other
-                technologies.
+                technologies. */}
+                {t('about.secondParagraph')}
               </p>
               <p className="my-4 font-medium">
-                One of my most notable projects was the development of a
+                {/* One of my most notable projects was the development of a
                 comprehensive online attendance platform designed to streamline
                 the user experience. This online attendance application is
                 officially used by a government institution, namely the
@@ -102,7 +106,8 @@ export default function About() {
                 particularly proud of involved creating an interactive web
                 application for monitoring livestock conditions, regulating
                 temperature, and recording milk production on a goat farm,
-                integrated seamlessly with the IoT team.
+                integrated seamlessly with the IoT team. */}
+                {t('about.thirdParagraph')}
               </p>
               {/* <p className="my-4 font-medium">
                 P.s I'm a big fan of motorcycle and not a real person ✌️.
@@ -142,37 +147,37 @@ export default function About() {
             >
               <div className="flex flex-col items-end justify-center xl:items-center">
                 <span className="inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl">
-                  <AnimatedNumberFramerMotion value={700} />+
+                <AnimatedNumberFramerMotion value={790} />+
                 </span>
                 <h3
-                  className="mb-4 text-xl font-medium capitalize text-dark/75 dark:text-light/75 
+                  className="mb-4 text-xl font-medium text-dark/75 dark:text-light/75 
                 xl:text-center md:text-lg sm:text-base xs:text-sm"
                 >
-                  Days of Coding
+                  {t('about.daysCoding')}
                 </h3>
               </div>
 
               <div className="flex flex-col items-end justify-center xl:items-center">
                 <span className="inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl">
-                  <AnimatedNumberFramerMotion value={300} />
+                <AnimatedNumberFramerMotion value={1000} />+
                 </span>
                 <h3
                   className="mb-4 text-xl font-medium capitalize text-dark/75 dark:text-light/75 
                 xl:text-center md:text-lg sm:text-base xs:text-sm"
                 >
-                  Bugs Made
+                  {t('about.bugsMade')}
                 </h3>
               </div>
 
               <div className="flex flex-col items-end justify-center xl:items-center">
                 <span className="inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl">
-                  <AnimatedNumberFramerMotion value={289} />
+                ~<AnimatedNumberFramerMotion value={950} />
                 </span>
                 <h3
                   className="mb-4 text-xl font-medium capitalize text-dark/75 dark:text-light/75 
                 xl:text-center md:text-lg sm:text-base xs:text-sm"
                 >
-                  Bugs Crushed
+                  {t('about.bugsCrushed')}
                 </h3>
               </div>
             </div>

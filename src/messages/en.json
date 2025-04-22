@@ -1,0 +1,52 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contacts": "Contact",
+    "resume": "Download Resume"
+  },
+  "home": {
+    "greeting": "Hola, I'm Robby",
+    "role": "I'm a Frontend Developer",
+    "description": "I create engaging web and mobile apps experiences.",
+    "about": "I'm passionate about building mobile-first, cross-platform apps that not only look great but work flawlessly. I enjoy solving problems creatively, collaborating with teams, and focusing on performance to deliver smooth, user-friendly experiences.",
+    "aboutButton": "Get To Know Me",
+    "projectButton": "Projects"
+  },
+  "about": {
+    "summary": "Get to Know Me 👋",
+    "title": "BIOGRAPHY",
+    "firstParagraph": "I'm Fatah RobbySalam, a front-end developer, where I specialize in creating dynamic and user-centric web and mobile app experiences. With approximately 2 years of experience in this industry, I have honed my skills in both front-end web and mobile development using multiplatform technologies, allowing me to deliver responsive and high-performance websites and applications.",
+    "secondParagraph": "At Fortis Solution, I had the opportunity to work on a variety of important projects that challenged and broadened my skill set. My technical expertise includes HTML, CSS, JavaScript, TypeScript, Vue.js, React, React Native, and other front-end technologies technologies.",
+    "thirdParagraph": "One of my most notable projects was the development of a comprehensive online attendance platform designed to streamline the user experience. This online attendance application is officially used by a government institution, namely the Indonesian National Police, and is implemented within the East Java Regional Police Department. Another project that I am particularly proud of involved creating an interactive web application for monitoring livestock conditions, regulating temperature, and recording milk production on a goat farm, integrated seamlessly with the IoT team.",
+    "daysCoding": "Days of Coding",
+    "bugsMade": "Bugs Made",
+    "bugsCrushed": "Bugs Crushed",
+    "skills": "Skills",
+    "experience": "Experience"
+  },
+  "experiences": {
+    "fortis": "At Fortis Solution, I work as a frontend developer for both web and mobile platforms. My responsibilities include delivering responsive and high-performance websites. For web applications, I utilize technologies such as Vue.js, Bootstrap, and Tailwind. For mobile applications, I use cross-platform technologies like React Native and Expo. I collaborate with the UI/UX team to create applications that address client issues and requests, ensuring that the projects meet high standards in both functionality and user experience.My work is driven by a passion for continuous learning and innovation, always striving to push the boundaries of what's possible in web and mobile development.",
+    "dicoding" : "Dicoding is a technology education platform that helps produce globally standardized digital talent, all to accelerate Indonesia to the forefront. At Dicoding, I lead, assist, and maintain a conducive and safe learning environment for all bootcamp participants, providing consultative learning support to students. I uphold honesty and integrity by not sharing code or engaging in any other forms of plagiarism with students, particularly concerning assignments, projects, and submissions during the learning process.",
+    "git": "At Gits Solutions, I worked as a front-end web developer intern. This was the beginning of my journey as a programmer, where I learned how dynamic websites are created, collaborated with a team, and honed my logical thinking skills. I focused on front-end technologies, especially Vue.js. At the end of the program, my team and I collaborated on a final project: a Point of Sale (PoS) system.",
+    "viewProjects": "View Projects"
+  },
+  "projects": {
+    "summary": "🎨 Code Meets Design — My Work 💻"
+  },
+  "contacts": {
+    "summary": "Feel free to reach out! I’m just one message away. 📲🎉",
+    "title": "What’s Next?",
+    "subtitle": "My inbox is always open! Whether it’s a question or just to say hi, I’ll get back to you as soon as I can. Feel free to message me anytime with updates or anything else!",
+    "name": "Your Name",
+    "email": "Your Email",
+    "msg": "Message",
+    "send": "Send It!",
+    "isSend": "Submitting...."
+  },
+  "footer": {
+    "title": "Made with",
+    "subtitle": "and"
+  }
+}

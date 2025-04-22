@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import LiIcon from "./LiIcon";
 import Link from "next/link";
+import { useTranslation } from "context/TranslationContext";
 
 const Details = ({ position, company, companyLink, time, address, work }) => {
   const ref = useRef(null);
@@ -37,6 +38,7 @@ const Details = ({ position, company, companyLink, time, address, work }) => {
 
 const Experience = () => {
   const ref = useRef(null);
+  const { t } = useTranslation('about') 
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -46,7 +48,7 @@ const Experience = () => {
   return (
     <div className="my-64">
       <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">
-        Experience
+        {t('about.experience')}
       </h2>
 
       <div ref={ref} className="relative w-[75%] mx-auto lg:w-[90%] md:w-full">
@@ -63,12 +65,7 @@ const Experience = () => {
             time="Feb 2023 - Present"
             address="Yogyakarta, Indonesia"
             companyLink="https://google.com/"
-            work="At Fortis Solution, I work as a frontend developer for both web and mobile platforms. My responsibilities include delivering 
-            responsive and high-performance websites. For web applications, I utilize technologies such as Vue.js, Bootstrap, and Tailwind. 
-            For mobile applications, I use cross-platform technologies like React Native and Expo. I collaborate with the UI/UX team to create 
-            applications that address client issues and requests, ensuring that the projects meet high standards in both functionality and user 
-            experience.My work is driven by a passion for continuous learning and innovation, always striving to push the boundaries of what's 
-            possible in web and mobile development."
+            work={t('experiences.fortis')}
           />
 
           <Details
@@ -77,11 +74,7 @@ const Experience = () => {
             time="Jan 2024 - May 2024"
             address="Online Mentoring"
             companyLink="https://dicoding.com/"
-            work="Dicoding is a technology education platform that helps produce globally standardized digital talent, all to accelerate 
-              Indonesia to the forefront. At Dicoding, I lead, assist, and maintain a conducive and safe learning environment for all bootcamp 
-              participants, providing consultative learning support to students. I uphold honesty and integrity by not sharing code or engaging 
-              in any other forms of plagiarism with students, particularly concerning assignments, projects, and submissions during the learning 
-              process."
+            work={t('experiences.dicoding')}
           />
 
           <Details
@@ -90,10 +83,7 @@ const Experience = () => {
             time="Aug 2022 - Dec 2022"
             address="Yogyakarta, Indonesia"
             companyLink="https://gitsolution.co.id/"
-            work="At Gits Solutions, I worked as a front-end web developer intern. This was the beginning of my journey as a programmer,
-             where I learned how dynamic websites are created, collaborated with a team, and honed my logical thinking skills. I focused 
-             on front-end technologies, especially Vue.js. At the end of the program, my team and I collaborated on a final project: a 
-             Point of Sale (PoS) system."
+            work={t('experiences.git')}
           />
         </ul>
       </div>
@@ -109,7 +99,7 @@ const Experience = () => {
             md:p-2 md:px-4 md:text-base
              `}
         >
-          View Projects
+          {t('experiences.viewProjects')}
         </Link>
         {/* <Link
           href="/articles/"
