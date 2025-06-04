@@ -17,6 +17,7 @@ import {
 } from "@/components/Icons";
 
 import proj1 from "/public/images/projects/geniusRestoAdmin.jpg";
+import { useRouter } from "next/router";
 
 const RestopiaDashboard = () => {
   return (
@@ -30,9 +31,19 @@ const RestopiaDashboard = () => {
         className={`flex  w-full flex-col items-center justify-center dark:text-light`}
       >
         <Layout className="pt-16">
+          <Link href="/projects/" legacyBehavior >
+            <a
+              className="p-2 px-6 text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
+                      dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
+                      md:p-2 md:px-4 md:text-base w-full text-center"
+              aria-label="back"
+            >
+              Back
+            </a>
+          </Link>
           <AnimatedText
             text="Restopia Dashboard"
-            className="mb-16 !text-8xl !leading-tight lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
+            className="mb-16 mt-16 !text-8xl !leading-tight lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
           />
           <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
             <div
@@ -60,7 +71,7 @@ const RestopiaDashboard = () => {
                 customer, cashier, and kitchen applications, ensuring smooth
                 system integration.
               </p>
-              
+
               <h4 className="mt-4 text-lg font-800 capitalize text-dark/75 dark:text-light/75">
                 {/* Unleashing the Power of Expo Framework */}
               </h4>
