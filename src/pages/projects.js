@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { HireMe2 } from "@/components/HireMe2";
 
 import proj1 from "../../public/images/projects/smartTernak.png";
@@ -18,6 +18,7 @@ import proj7 from "../../public/images/projects/imanhub.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
 import { motion, useMotionValue } from "framer-motion";
 import { useTranslation } from "context/TranslationContext";
+import { useRouter } from "next/router";
 
 const FramerImage = motion(Image);
 
@@ -164,6 +165,25 @@ const FeaturedProject = ({
 };
 
 const Project = ({ title, type, img, link, tools }) => {
+  const router = useRouter()
+
+  useEffect(() => {
+    const savedScroll = sessionStorage.getItem('scroll-position');
+    if (savedScroll) {
+      window.scrollTo(0, parseInt(savedScroll, 10));
+      sessionStorage.removeItem('scroll-position');
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      sessionStorage.setItem('scroll-position', window.scrollY.toString())
+    }
+    router.events.on('routeChangeStart', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [router])
   return (
     <article
       className="relative flex w-full flex-col items-center justify-center rounded-2xl  rounded-br-2xl 
