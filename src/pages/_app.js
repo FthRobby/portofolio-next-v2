@@ -11,6 +11,7 @@ import fetch from "node-fetch";
 
 import { NextIntlClientProvider } from "next-intl";
 import { TranslationProvider } from "context/TranslationContext";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 // If loading a variable font, you don't need to specify the font weight
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-mont" });
@@ -71,6 +72,7 @@ function MyApp({ Component, pageProps, locale, messages }) {
           <Navbar />
           <AnimatePresence initial={false} mode="wait">
             <Component key={router.asPath} {...pageProps} />
+            <SpeedInsights />
           </AnimatePresence>
           <Footer />
         </main>
