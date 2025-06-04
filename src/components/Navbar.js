@@ -11,6 +11,7 @@ import {
   SunIcon,
   IdnFlagIcon,
   EngFlagIcon,
+  DiscordIcon,
 } from "./Icons";
 import { motion } from "framer-motion";
 import { useThemeSwitch } from "./Hooks/useThemeSwitch";
@@ -18,7 +19,7 @@ import { useTranslation } from "context/TranslationContext";
 
 const CustomLink = ({ href, title, className = "", target }) => {
   const router = useRouter();
- 
+
 
   return (
     <Link
@@ -56,9 +57,8 @@ const CustomMobileLink = ({ href, title, className = "", toggle, target }) => {
         className={`
               inline-block h-[1px]  bg-dark absolute left-0 -bottom-0.5 
               group-hover:w-full transition-[width] ease duration-300 dark:bg-light
-              ${
-                router.asPath === href ? "w-full" : " w-0"
-              } lg:bg-light lg:dark:bg-dark
+              ${router.asPath === href ? "w-full" : " w-0"
+          } lg:bg-light lg:dark:bg-dark
               `}
       >
         &nbsp;
@@ -72,7 +72,7 @@ const Navbar = () => {
   const router = useRouter();
   const [mode, setMode] = useThemeSwitch();
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const currentLocale = router.locale;
   const currentFlag = router.locale;
   const [isChanged, setIsChanged] = useState(currentLocale === "id");
@@ -114,19 +114,16 @@ const Navbar = () => {
       >
         <span className="sr-only">Open main menu</span>
         <span
-          className={`bg-dark dark:bg-light block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${
-            isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
-          }`}
+          className={`bg-dark dark:bg-light block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
+            }`}
         ></span>
         <span
-          className={`bg-dark dark:bg-light block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${
-            isOpen ? "opacity-0" : "opacity-100"
-          } my-0.5`}
+          className={`bg-dark dark:bg-light block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${isOpen ? "opacity-0" : "opacity-100"
+            } my-0.5`}
         ></span>
         <span
-          className={`bg-dark dark:bg-light block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${
-            isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
-          }`}
+          className={`bg-dark dark:bg-light block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
+            }`}
         ></span>
       </button>
 
@@ -156,6 +153,17 @@ const Navbar = () => {
             aria-label="Checkout my GitHub profile"
           >
             <GithubIcon />
+          </motion.a>
+
+          <motion.a
+            target={"_blank"}
+            className="w-7"
+            href="https://discordapp.com/users/1014428917211349032"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Message me on Discord"
+          >
+            <DiscordIcon />
           </motion.a>
 
           <button
@@ -243,6 +251,17 @@ const Navbar = () => {
               <GithubIcon />
             </motion.a>
 
+            <motion.a
+              target={"_blank"}
+              className="w-6 mr-3"
+              href="https://discordapp.com/users/1014428917211349032"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Message me on Discord"
+            >
+              <DiscordIcon />
+            </motion.a>
+
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
               className={`w-6 h-6 ease m-1 ml-3 sm:mx-1 flex items-center justify-center rounded-full p-1  
@@ -273,7 +292,7 @@ const Navbar = () => {
         </motion.div>
       </div>
 
-      
+
     </header>
   );
 };
