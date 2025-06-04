@@ -97,7 +97,7 @@ export default function Home() {
             md:p-2 md:px-4 md:text-base
              `}
                 >
-                 {t("home.aboutButton")}
+                  {t("home.aboutButton")}
                 </Link>
                 <Link
                   href="/projects/"
