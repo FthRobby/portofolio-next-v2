@@ -38,7 +38,7 @@ const Details = ({ position, company, companyLink, time, address, work }) => {
 
 const Experience = () => {
   const ref = useRef(null);
-  const { t } = useTranslation('about') 
+  const { t } = useTranslation('about')
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -64,7 +64,7 @@ const Experience = () => {
             company="Fortis Solutions"
             time="Feb 2023 - Present"
             address="Yogyakarta, Indonesia"
-            companyLink="https://google.com/"
+            companyLink="https://fortissolution.id/"
             work={t('experiences.fortis')}
           />
 
