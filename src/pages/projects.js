@@ -14,6 +14,7 @@ import proj4 from "../../public/images/projects/geniusResto.png";
 import proj5 from "../../public/images/projects/geniusRestoAdmin.jpg";
 import proj6 from "../../public/images/projects/ePresensiSemeru.png";
 import proj7 from "../../public/images/projects/imanhub.jpg";
+import proj8 from "../../public/images/projects/presensiHatpen.png"
 
 import TransitionEffect from "@/components/TransitionEffect";
 import { motion, useMotionValue } from "framer-motion";
@@ -265,15 +266,36 @@ export default function Projects() {
           />
           <div className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
             <div className="col-span-12">
-              <FeaturedProject
+              {/* <FeaturedProject
+                type="Development"
+                tools="Expo | Zustand | RN Vision Camera "
+                title="SimPres Hatpen"
+                summary="SimPres Hatpen is an attendance system at the Aviation Health Center."
+                img={proj8}
+                date="2023"
+                link="/projects/simpres-hatpen"
+                github="#"
+              /> */}
+            </div>
+            <div className="col-span-6 sm:col-span-12">
+              <Project
+                type="Development"
+                tools="Expo | Zustand | RN Vision Camera "
+                title="SimPres Hatpen"
+                summary="SimPres Hatpen is an attendance system at the Aviation Health Center."
+                img={proj8}
+                date="2023"
+                link="/projects/simpres-hatpen"
+              />
+            </div>
+            <div className="col-span-6 sm:col-span-12">
+              <Project
                 type="Development"
                 tools="Expo | React Native | Zustand"
                 title="ePresensi Semeru"
-                summary="The East Java Regional Police digital attendance application makes it easy to record activity attendance in real-time and provides attendance reports."
                 img={proj6}
                 date="2023"
                 link="/projects/epresensi-semeru"
-                github="#"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
