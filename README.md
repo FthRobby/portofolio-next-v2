@@ -10,10 +10,8 @@ Framer Motion 11+
 
 ### 🛠️ Requirements
 
-- Node 18+
-  - https://nodejs.org/en
-- Yarn
-  - https://classic.yarnpkg.com/en/docs/getting-started
+- [Node 18+](https://nodejs.org/en)
+- [Yarn](https://classic.yarnpkg.com/en/docs/getting-started)
 
 
 
