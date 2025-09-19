@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps, locale, messages }) {
   const router = useRouter();
 
   const metaDescription = "My personal website. Build using Next Js";
-  const metaTitle = "Fatah Robby";
+  const metaTitle = "Robby";
   const metaImage =
     "https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg";
 
@@ -56,8 +56,6 @@ function MyApp({ Component, pageProps, locale, messages }) {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
-          <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <meta name="description" content={metaDescription} />
           <meta property="og:description" content={metaDescription} />
           <meta property="og:image" content={metaImage} />
@@ -66,17 +64,16 @@ function MyApp({ Component, pageProps, locale, messages }) {
             property="og:url"
             content={`https://www.frobby.tech/${router.asPath}`}
           />
-          <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        {/* <main className={`${montserrat.variable} font-mont  bg-light dark:bg-dark w-full min-h-screen h-full justify-center items-center flex-1`}>
+        <main className={`${montserrat.variable} font-mont  bg-light dark:bg-dark w-full min-h-screen h-full justify-center items-center flex-1`}>
           <Navbar />
           <AnimatePresence initial={false} mode="wait">
             <Component key={router.asPath} {...pageProps} />
             <SpeedInsights />
           </AnimatePresence>
           <Footer />
-        </main> */}
-        <div className="min-h-screen bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-4">
+        </main>
+        {/* <div className="min-h-screen bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-4">
           <div className="text-center max-w-2xl mx-auto">
 
             <div className="mb-12">
@@ -87,7 +84,6 @@ function MyApp({ Component, pageProps, locale, messages }) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                {/* Rotating Ring Around Icon */}
                 <div className="absolute inset-0 w-32 h-32 border-2 border-transparent border-t-white border-r-white rounded-full animate-spin mx-auto opacity-30"></div>
                 <div className="absolute inset-2 w-28 h-28 border border-transparent border-b-purple-400 border-l-blue-400 rounded-full animate-spin mx-auto opacity-50" style={{ animationDirection: 'reverse' }}></div>
               </div>
@@ -106,7 +102,7 @@ function MyApp({ Component, pageProps, locale, messages }) {
               robby | See you soon 👋
             </div>
           </div>
-        </div>
+        </div> */}
       </TranslationProvider>
     </>
   );
