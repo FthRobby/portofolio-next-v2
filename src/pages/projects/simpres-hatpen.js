@@ -8,10 +8,19 @@ import {
   TsIcon, ReactIcon, ExpoIcon, AndroidIcon,
   IosIcon
 } from "@/components/Icons";
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
+import proj1 from "/public/images/projects/simpresHatpenPreview.png";
 
-import proj1 from "/public/images/projects/presensiHatpen.png";
 
 const SimpresHatpen = () => {
+  const [sliderRef, instanceRef] = useKeenSlider(
+    {
+      slideChanged() {
+        console.log('slide changed')
+      },
+    }
+  )
   return (
     <>
       <Head>
@@ -42,9 +51,10 @@ const SimpresHatpen = () => {
               className="col-span-4 flex flex-col items-start justify-start xl:col-span-4 md:order-2 
             md:col-span-8"
             >
-              <h2 className="mb-4 text-2xl font-bold capitalize text-dark/75 dark:text-light/75">
-                SimPres Hatpen (Hatpen Attendance Information System) is the official application of the Aviation Health Center, designed to support the digital, modern, and integrated management of employee attendance.
+              <h2 className="mb-4 text-2xl font-bold text-dark/75 dark:text-light/75">
+                SimPres Hatpen is the official app for managing employee attendance at the Aviation Health Center.
               </h2>
+
               <h3 className="mb-4 text-lg font-bold  text-lightGreen dark:text-primaryDark">
                 Development
               </h3>
@@ -74,8 +84,34 @@ const SimpresHatpen = () => {
                   aria-label="Visit Theme Demo"
                   href=""
                 >
-                  Not Avaiable
+                  Preview Not Avaiable
                 </Link>
+              </div>
+            </div>
+            <div
+              className="relative col-span-4 h-max rounded-2xl border-2 border-solid border-dark 
+                        bg-light p-8 dark:border-light dark:bg-dark
+                        xl:col-span-4 md:col-span-8 md:order-1
+                        "
+            >
+              <div
+                className="absolute  top-0 -right-3 -z-10 h-[103%] w-[102%]  rounded-[2rem] rounded-br-3xl 
+                            bg-dark
+                    dark:bg-light  "
+              />
+              <div ref={sliderRef} className="keen-slider">
+                <Image
+                  className="h-auto w-full rounded-2xl keen-slider__slide"
+                  src={proj1}
+                  alt="Clay Gatsby Theme"
+                  sizes="(max-width: 768px) 100vw,
+                          (max-width: 1200px) 50vw,
+                          33vw"
+                  priority
+                />
+                {/* <div className="keen-slider__slide">1</div>
+                <div className="keen-slider__slide">2</div>
+                <div className="keen-slider__slide">3</div> */}
               </div>
             </div>
           </div>

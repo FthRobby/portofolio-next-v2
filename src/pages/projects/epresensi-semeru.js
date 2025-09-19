@@ -97,15 +97,22 @@ const EpresensiSemeru = () => {
                     <ExpoIcon />
                   </Link>
                 </div>
-                <Link
+                {/* <Link
                   className="p-2 px-6 text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark 
                 dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light
                   md:p-2 md:px-4 md:text-base  w-full text-center"
                   aria-label="Visit Theme Demo"
-                  href="https://play.google.com/store/apps/details?id=com.epresensisemeru"
-                  target={"_blank"}
+                  href=""
                 >
-                  Visit Demo
+                  View on Play Store
+                </Link> */}
+                <Link
+                  aria-disabled
+                  className="p-2 px-6 text-center text-lg font-semibold sm:px-4 sm:text-base rounded-lg border-2 border-solid bg-dark capitalize text-light hover:cursor-not-allowed"
+                  aria-label="Visit Theme Demo"
+                  href=""
+                >
+                  Preview Not Avaiable
                 </Link>
               </div>
             </div>
