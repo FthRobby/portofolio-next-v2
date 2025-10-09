@@ -70,7 +70,7 @@ const Experience = () => {
 
           <Details
             position="Web Developer Mentor"
-            company="Dicoding"
+            company="Dicoding Bootcamp Batch 2"
             time="Jan 2024 - May 2024"
             address="Online Mentoring"
             companyLink="https://dicoding.com/"
@@ -84,6 +84,15 @@ const Experience = () => {
             address="Yogyakarta, Indonesia"
             companyLink="https://gitsolution.co.id/"
             work={t('experiences.git')}
+          />
+
+          <Details
+            position="Student"
+            company="Dicoding"
+            time="Feb 2022 - Aug 2022"
+            address="Online Program"
+            companyLink="https://dicoding.com/"
+            work={t('experiences.sib')}
           />
         </ul>
       </div>

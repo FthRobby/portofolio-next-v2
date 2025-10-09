@@ -10,6 +10,8 @@ import AnimatedText from "@/components/AnimatedText";
 import TransitionEffect from "@/components/TransitionEffect";
 import { HireMe2 } from "@/components/HireMe2";
 import { useTranslation } from "context/TranslationContext";
+import { motion } from "framer-motion";
+
 
 function AnimatedNumberFramerMotion({ value }) {
   const ref = useRef(null);
@@ -37,6 +39,48 @@ function AnimatedNumberFramerMotion({ value }) {
 
 export default function About() {
   const { t } = useTranslation('about')
+  const FramerImage = motion(Image)
+
+
+  const mentor2 = '/cert/mentor_cert_2.jpg'
+  const mentor = '/cert/mentor_cert.jpg'
+  const git = '/cert/git.png'
+  const sib = '/cert/sib.png'
+
+  // src/data/certificates.ts
+
+  const certificates = [
+    {
+      id: 1,
+      title: 'Sertifikat Penghargaan sebagai Mentor Bootcamp',
+      description:
+        'Sertifikat penghargaan sebagai mentor pada program Dicoding Bootcamp Batch 2.',
+      image_url: '/cert/mentor_cert.jpg',
+    },
+    {
+      id: 2,
+      title:
+        'Sertifikat Penghargaan Mentor Bootcamp dengan Peningkatan Progress Terbaik',
+      description:
+        'Sertifikat penghargaan pada program Dicoding Bootcamp Batch 2 sebagai mentor dengan peningkatan progress terbaik.',
+      image_url: '/cert/mentor_cert_2.jpg',
+    },
+    {
+      id: 3,
+      title: 'Sertifikat Kelulusan Program Magang di PT Git Solution',
+      description:
+        'Sertifikat kelulusan program magang di PT Git Solution.',
+      image_url: '/cert/git.png',
+    },
+    {
+      id: 4,
+      title: 'Sertifikat Kelulusan Program SIB Dicoding - Frontend & Backend Web Developer',
+      description:
+        'Sertifikat kelulusan program SIB Dicoding x Kampus Merdeka.',
+      image_url: '/cert/sib.png',
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -133,6 +177,48 @@ export default function About() {
           </div>
 
           <Skills />
+          <div></div>
+          <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">
+            {t('about.cert')}
+          </h2>
+          <section className=" grid grid-cols-3 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 justify-center">
+            {certificates
+              .map((item, index) => (
+                <article
+                  key={index}
+                  className="relative flex w-full flex-col items-center rounded-2xl border border-solid border-dark 
+                 bg-light p-6 shadow-2xl dark:border-light dark:bg-dark xs:p-4 mt-5 md:mt-0"
+                >
+                  {/* Background layer */}
+                  <div
+                    className="absolute top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl bg-dark
+                   dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]"
+                  />
+
+                  {/* Image */}
+                  <FramerImage
+                    src={item.image_url}
+                    className="h-auto w-full object-cover rounded-xl"
+                    alt={item.title}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority
+                    width={50}
+                    height={50}
+                  />
+
+                  {/* Text container */}
+                  <div
+                    className="flex w-full flex-col items-start justify-between pt-6 text-left"
+                  >
+                    <span className="text-xl font-medium text-primary dark:text-light xs:text-base">
+                      {item.title}
+                    </span>
+                  </div>
+                </article>
+              ))}
+          </section>
           <Experience />
         </Layout>
       </main>

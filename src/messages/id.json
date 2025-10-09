@@ -1,5 +1,5 @@
 {
-  "navbar" : {
+  "navbar": {
     "home": "Beranda",
     "about": "Tentang Saya",
     "projects": "Portofolio",
@@ -24,12 +24,14 @@
     "bugsMade": "Bug Dibuat",
     "bugsCrushed": "Bug Dihancurkan",
     "skills": "Skills",
-    "experience": "Pengalaman Kerja"
+    "experience": "Pengalaman Kerja",
+    "cert": "Sertifikat"
   },
   "experiences": {
     "fortis": "Di Fortis Solution, saya bekerja sebagai pengembang frontend untuk platform web dan mobile. Tanggung jawab saya mencakup menyajikan website yang responsif dan berkinerja tinggi. Untuk aplikasi web, saya menggunakan teknologi seperti Vue.js, Bootstrap, dan Tailwind. Untuk aplikasi mobile, saya memanfaatkan teknologi cross-platform seperti React Native dan Expo. Saya bekerja sama dengan tim UI/UX untuk menciptakan aplikasi yang mampu menjawab permasalahan dan permintaan klien, serta memastikan proyek yang dihasilkan memiliki standar tinggi, baik dari segi fungsi maupun pengalaman pengguna. Pekerjaan saya didorong oleh semangat untuk terus belajar dan berinovasi, selalu berusaha untuk mendorong batas dari apa yang mungkin dilakukan dalam pengembangan web dan mobile.",
-    "dicoding" : "Dicoding adalah platform edukasi teknologi yang membantu mencetak talenta digital berstandar global, guna mempercepat kemajuan Indonesia ke level terdepan. Di Dicoding, saya bertugas untuk memandu, membantu, dan menjaga lingkungan belajar yang kondusif dan aman bagi seluruh peserta bootcamp, serta memberikan dukungan belajar secara konsultatif kepada siswa. Saya menjunjung tinggi nilai kejujuran dan integritas, dengan tidak membagikan kode maupun terlibat dalam bentuk plagiarisme apa pun kepada siswa, khususnya terkait tugas, proyek, dan pengumpulan selama proses pembelajaran.",
+    "dicoding": "Dicoding adalah platform edukasi teknologi yang membantu mencetak talenta digital berstandar global, guna mempercepat kemajuan Indonesia ke level terdepan. Di Dicoding, saya bertugas untuk memandu, membantu, dan menjaga lingkungan belajar yang kondusif dan aman bagi seluruh peserta bootcamp, serta memberikan dukungan belajar secara konsultatif kepada siswa. Saya menjunjung tinggi nilai kejujuran dan integritas, dengan tidak membagikan kode maupun terlibat dalam bentuk plagiarisme apa pun kepada siswa, khususnya terkait tugas, proyek, dan pengumpulan selama proses pembelajaran.",
     "git": "Di Gits Solutions, saya bekerja sebagai intern pengembang web front-end. Ini adalah awal dari perjalanan saya sebagai seorang programmer, di mana saya belajar bagaimana website dinamis dibuat, bekerja sama dalam tim, dan mengasah kemampuan berpikir logis. Saya fokus pada teknologi front-end, khususnya Vue.js. Pada akhir program, saya dan tim berkolaborasi dalam proyek akhir berupa sistem Point of Sale (PoS).",
+    "sib": "Saya mengikuti Program Studi Mandiri Tersertifikasi (MSIB) di Dicoding Indonesia (PT Presentologics) di jalur Pengembangan Web Front-End dan Back-End, tempat saya belajar dan mempraktikkan berbagai teknologi pengembangan web, termasuk JavaScript, Git, dan AWS Cloud. Program ini tidak hanya meningkatkan keterampilan teknis dan non-teknis saya seperti kolaborasi, pemecahan masalah, dan pemikiran desain, tetapi juga memberikan konversi SKS di universitas saya, memberi saya pengalaman dunia nyata yang berharga dan fondasi yang kuat untuk memulai perjalanan profesional saya di bidang pemrograman dan pengembangan web.",
     "viewProjects": "Lihat Portofolio"
   },
   "projects": {
