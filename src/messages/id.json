@@ -25,7 +25,15 @@
     "bugsCrushed": "Bug Dihancurkan",
     "skills": "Skills",
     "experience": "Pengalaman Kerja",
-    "cert": "Sertifikat"
+    "cert": "Sertifikat",
+    "cert_sib": "Sertifikat Kelulusan Program SIB Dicoding - Frontend & Backend Web Developer",
+    "cert_intern": "Sertifikat Kelulusan Program Magang di PT Git Solution",
+    "cert_mentor": "Sertifikat Penghargaan sebagai Mentor Bootcamp",
+    "cert_best_mentor": "Sertifikat Penghargaan Mentor Bootcamp dengan Peningkatan Progress Terbaik",
+    "cert_react_basic": "Sertifikat Meta React Basic",
+    "cert_react_advanced": "Sertifikat Meta React Advanced",
+    "cert_react_native": "Sertifikat Meta React Native",
+    "cert_js": "Sertifikat Meta Programming with JavaScript"
   },
   "experiences": {
     "fortis": "Di Fortis Solution, saya bekerja sebagai pengembang frontend untuk platform web dan mobile. Tanggung jawab saya mencakup menyajikan website yang responsif dan berkinerja tinggi. Untuk aplikasi web, saya menggunakan teknologi seperti Vue.js, Bootstrap, dan Tailwind. Untuk aplikasi mobile, saya memanfaatkan teknologi cross-platform seperti React Native dan Expo. Saya bekerja sama dengan tim UI/UX untuk menciptakan aplikasi yang mampu menjawab permasalahan dan permintaan klien, serta memastikan proyek yang dihasilkan memiliki standar tinggi, baik dari segi fungsi maupun pengalaman pengguna. Pekerjaan saya didorong oleh semangat untuk terus belajar dan berinovasi, selalu berusaha untuk mendorong batas dari apa yang mungkin dilakukan dalam pengembangan web dan mobile.",

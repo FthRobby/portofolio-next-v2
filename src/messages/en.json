@@ -25,7 +25,15 @@
     "bugsCrushed": "Bugs Crushed",
     "skills": "Skills",
     "experience": "Experience",
-    "cert": "Certificate"
+    "cert": "Certificate",
+    "cert_sib": "Certificate of Completion for the SIB Dicoding Program – Frontend & Backend Web Developer",
+    "cert_intern": "Certificate of Completion for Internship Program at PT Git Solution",
+    "cert_mentor": "Certificate of Appreciation as a Bootcamp Mentor",
+    "cert_best_mentor": "Certificate of Appreciation for the Bootcamp Mentor with the Best Progress Improvement",
+    "cert_react_basic": "Meta Certificate React Basic",
+    "cert_react_advanced": "Meta Certificate React Advanced",
+    "cert_react_native": "Meta Certificate React Native",
+    "cert_js": "Meta Certificate Programming with JavaScript"
   },
   "experiences": {
     "fortis": "At Fortis Solution, I work as a frontend developer for both web and mobile platforms. My responsibilities include delivering responsive and high-performance websites. For web applications, I utilize technologies such as Vue.js, Bootstrap, and Tailwind. For mobile applications, I use cross-platform technologies like React Native and Expo. I collaborate with the UI/UX team to create applications that address client issues and requests, ensuring that the projects meet high standards in both functionality and user experience.My work is driven by a passion for continuous learning and innovation, always striving to push the boundaries of what's possible in web and mobile development.",

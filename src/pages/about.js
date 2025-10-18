@@ -11,6 +11,8 @@ import TransitionEffect from "@/components/TransitionEffect";
 import { HireMe2 } from "@/components/HireMe2";
 import { useTranslation } from "context/TranslationContext";
 import { motion } from "framer-motion";
+import Link from "next/link";
+
 
 
 function AnimatedNumberFramerMotion({ value }) {
@@ -41,43 +43,65 @@ export default function About() {
   const { t } = useTranslation('about')
   const FramerImage = motion(Image)
 
-
-  const mentor2 = '/cert/mentor_cert_2.jpg'
-  const mentor = '/cert/mentor_cert.jpg'
-  const git = '/cert/git.png'
-  const sib = '/cert/sib.png'
-
-  // src/data/certificates.ts
-
   const certificates = [
     {
+      id: 0,
+      title: `${t('about.cert_react_native')}`,
+      image_url: '/cert/react_native.png',
+      link: "https://coursera.org/verify/CZGKAJ5K3RZ6"
+
+    },
+    {
       id: 1,
-      title: 'Sertifikat Penghargaan sebagai Mentor Bootcamp',
-      description:
-        'Sertifikat penghargaan sebagai mentor pada program Dicoding Bootcamp Batch 2.',
-      image_url: '/cert/mentor_cert.jpg',
+      title: `${t('about.cert_react_advanced')}`,
+      image_url: "/cert/react_advanced.png",
+      link: 'https://coursera.org/verify/G6R6ZPWGV9MM'
+
     },
     {
       id: 2,
-      title:
-        'Sertifikat Penghargaan Mentor Bootcamp dengan Peningkatan Progress Terbaik',
-      description:
-        'Sertifikat penghargaan pada program Dicoding Bootcamp Batch 2 sebagai mentor dengan peningkatan progress terbaik.',
-      image_url: '/cert/mentor_cert_2.jpg',
+      title: `${t('about.cert_react_basic')}`,
+      image_url: '/cert/react_basic.png',
+      link: "https://coursera.org/verify/KQMK3954WKZU"
     },
     {
       id: 3,
-      title: 'Sertifikat Kelulusan Program Magang di PT Git Solution',
-      description:
-        'Sertifikat kelulusan program magang di PT Git Solution.',
-      image_url: '/cert/git.png',
+      title: `${t('about.cert_js')}`,
+      image_url: '/cert/js.png',
+      link: 'https://coursera.org/verify/WNO7PGETUPF0'
     },
     {
       id: 4,
-      title: 'Sertifikat Kelulusan Program SIB Dicoding - Frontend & Backend Web Developer',
+      title: `${t('about.cert_best_mentor')}`,
+      description:
+        'Sertifikat penghargaan pada program Dicoding Bootcamp Batch 2 sebagai mentor dengan peningkatan progress terbaik.',
+      image_url: '/cert/mentor_cert_2.jpg',
+      link: '#'
+    },
+    {
+      id: 5,
+      title: `${t('about.cert_mentor')}`,
+      description:
+        'Sertifikat penghargaan sebagai mentor pada program Dicoding Bootcamp Batch 2.',
+      image_url: '/cert/mentor_cert.jpg',
+      link: "#"
+
+    },
+    {
+      id: 6,
+      title: `${t('about.cert_intern')}`,
+      description:
+        'Sertifikat kelulusan program magang di PT Git Solution.',
+      image_url: '/cert/git.png',
+      link: "#"
+    },
+    {
+      id: 7,
+      title: `${t('about.cert_sib')}`,
       description:
         'Sertifikat kelulusan program SIB Dicoding x Kampus Merdeka.',
       image_url: '/cert/sib.png',
+      link: "#"
     },
   ];
 
@@ -116,9 +140,6 @@ export default function About() {
 
                 {t('about.thirdParagraph')}
               </p>
-              {/* <p className="my-4 font-medium">
-                P.s I'm a big fan of motorcycle and not a real person ✌️.
-              </p> */}
             </div>
             <div
               className="relative col-span-3 h-max rounded-2xl xl:col-span-4 md:col-span-8 md:order-1
@@ -181,7 +202,7 @@ export default function About() {
           <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">
             {t('about.cert')}
           </h2>
-          <section className=" grid grid-cols-3 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 justify-center">
+          <section className=" grid grid-cols-4 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10 justify-center">
             {certificates
               .map((item, index) => (
                 <article
@@ -189,33 +210,40 @@ export default function About() {
                   className="relative flex w-full flex-col items-center rounded-2xl border border-solid border-dark 
                  bg-light p-6 shadow-2xl dark:border-light dark:bg-dark xs:p-4 mt-5 md:mt-0"
                 >
-                  {/* Background layer */}
-                  <div
-                    className="absolute top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl bg-dark
-                   dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]"
-                  />
-
-                  {/* Image */}
-                  <FramerImage
-                    src={item.image_url}
-                    className="h-auto w-full object-cover rounded-xl"
-                    alt={item.title}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority
-                    width={50}
-                    height={50}
-                  />
-
-                  {/* Text container */}
-                  <div
-                    className="flex w-full flex-col items-start justify-between pt-6 text-left"
+                  <Link
+                    href={item.link || "#"}
+                    target={item.link !== "#" ? "_blank" : undefined}
+                    className="relative"
                   >
-                    <span className="text-xl font-medium text-primary dark:text-light xs:text-base">
-                      {item.title}
-                    </span>
-                  </div>
+
+                    {/* Background layer */}
+                    <div
+                      className="absolute top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl bg-dark
+                   dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]"
+                    />
+
+                    {/* Image */}
+                    <FramerImage
+                      src={item.image_url}
+                      className="h-auto w-full object-cover rounded-xl"
+                      alt={item.title}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority
+                      width={50}
+                      height={50}
+                    />
+
+                    {/* Text container */}
+                    <div
+                      className="flex w-full flex-col items-start justify-between pt-6 text-left"
+                    >
+                      <span className="text-xl font-medium text-primary dark:text-light xs:text-base">
+                        {item.title}
+                      </span>
+                    </div>
+                  </Link>
                 </article>
               ))}
           </section>

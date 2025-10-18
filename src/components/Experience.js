@@ -69,16 +69,16 @@ const Experience = () => {
           />
 
           <Details
-            position="Web Developer Mentor"
+            position="Mentor"
             company="Dicoding Bootcamp Batch 2"
-            time="Jan 2024 - May 2024"
+            time="Feb 2024 - Jun 2024"
             address="Online Mentoring"
             companyLink="https://dicoding.com/"
             work={t('experiences.dicoding')}
           />
 
           <Details
-            position="Web Developer Intern"
+            position="Fullstack Web Developer"
             company="Gits Solutions"
             time="Aug 2022 - Dec 2022"
             address="Yogyakarta, Indonesia"
@@ -87,7 +87,7 @@ const Experience = () => {
           />
 
           <Details
-            position="Student"
+            position="SIB Student"
             company="Dicoding"
             time="Feb 2022 - Aug 2022"
             address="Online Program"
