@@ -9,7 +9,7 @@ const nextConfig = {
     localeDetection: false,
     domains: [
       {
-        domain: "frobby.tech",
+        domain: "frobby.space",
         defaultLocale: "en",
         locales: ["en", "id"],
       },
