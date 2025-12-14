@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import App from "next/app";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -16,6 +16,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 // If loading a variable font, you don't need to specify the font weight
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-mont" });
 
+
 function MyApp({ Component, pageProps, locale, messages }) {
   const router = useRouter();
 
@@ -23,10 +24,68 @@ function MyApp({ Component, pageProps, locale, messages }) {
   const metaTitle = "Robby";
   const metaImage =
     "https://raw.githubusercontent.com/FthRobby/portofolio-next-v2/refs/heads/main/public/images/profile/itsme.jpg";
+  const [countdown, setCountdown] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [timeLeft, setTimeLeft] = useState(null);
 
   // useEffect(() => {
   //   trackVisit();
   // }, []);
+
+  useEffect(() => {
+    if (!countdown?.end_time) return;
+
+    const interval = setInterval(() => {
+      const now = Date.now();
+      const end = new Date(countdown.end_time).getTime();
+      const diff = end - now;
+
+      if (diff <= 0) {
+        setTimeLeft(null);
+        clearInterval(interval);
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [countdown]);
+
+
+  useEffect(() => {
+
+    fetchCountdown();
+  }, []);
+
+  const fetchCountdown = async () => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/countdown?select=end_time&limit=1`,
+        {
+          headers: {
+            apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+          },
+        }
+      );
+
+      if (!res.ok) throw new Error("Failed to fetch countdown");
+
+      const data = await res.json();
+      setCountdown(data[0]);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   const trackVisit = async () => {
     try {
@@ -90,17 +149,41 @@ function MyApp({ Component, pageProps, locale, messages }) {
             </div>
           </div>
 
+
+
+
+          {!loading && timeLeft && (
+            <div className="mb-10 text-white">
+              <p className="uppercase tracking-widest text-sm text-gray-400 mb-3">
+                LAUNCHING SOON
+              </p>
+
+              <div className="flex justify-center gap-6 text-center">
+                {Object.entries(timeLeft).map(([label, value]) => (
+                  <div key={label}>
+                    <div className="text-4xl font-bold">
+                      {String(value).padStart(2, "0")}
+                    </div>
+                    <div className="text-xs text-gray-400 uppercase">
+                      {label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            🚀 Under Maintenance
+            🚀 I’ll Be Back Soon
           </h1>
 
           <p className="text-lg md:text-xl text-gray-400 mb-8">
-            Hey there! I’m polishing up this site to make it even better.
-            Hang tight, it’ll be back online soon!
+            I’m currently working on some improvements to my site.
+            It’ll be back online very soon. Thanks for stopping by!
           </p>
 
           <div className="text-gray-500 text-sm">
-            robby | See you soon 👋
+            — Robby
           </div>
         </div>
       </div>
