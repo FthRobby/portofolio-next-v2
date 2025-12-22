@@ -1,0 +1,5 @@
+onlyBuiltDependencies:
+  - '@morev/vue-transitions'
+  - better-sqlite3
+  - esbuild
+  - vue-demi

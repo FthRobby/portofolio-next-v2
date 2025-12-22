@@ -1,0 +1,57 @@
+{
+  "name": "website",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.26.1",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "format": "eslint --fix .",
+    "shadcn:add": "npx shadcn-vue@latest add"
+  },
+  "dependencies": {
+    "@fontsource-variable/jetbrains-mono": "^5.1.2",
+    "@nuxt/content": "^3.6.3",
+    "@nuxt/fonts": "^0.11.4",
+    "@radix-icons/vue": "^1.0.0",
+    "@vercel/analytics": "^1.5.0",
+    "@vueuse/core": "^13.6.0",
+    "better-sqlite3": "^12.4.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "radix-vue": "^1.9.14",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@iconify-json/devicon": "^1.2.21",
+    "@iconify-json/emojione": "^1.2.1",
+    "@iconify-json/emojione-monotone": "^1.2.1",
+    "@iconify-json/logos": "^1.2.4",
+    "@iconify-json/lucide": "^1.2.32",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/simple-icons": "^1.2.29",
+    "@nuxt/icon": "^1.15.0",
+    "@nuxt/image": "^1.11.0",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@nuxtjs/device": "^3.2.4",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@vueuse/nuxt": "^13.6.0",
+    "eslint-plugin-format": "^1.0.1",
+    "nuxt": "^4.2.2",
+    "shadcn-nuxt": "^2.2.0",
+    "typescript": "^5.9.2"
+  }
+}

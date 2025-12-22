@@ -1,0 +1,299 @@
+import type { CategorySlug, Project } from '~/models'
+import { Category } from '~/models'
+
+const categories: Record<CategorySlug, string> = {
+  [Category.projects]: 'Projects',
+  [Category.hobby]: 'Side projects',
+  [Category.modules]: 'Packages & Modules',
+  [Category.extensions]: 'Plugins, Scripts & Extensions',
+  [Category.templates]: 'Templates',
+  [Category.collections]: 'Collections',
+}
+
+const projects: Project[] = [
+  {
+    slug: 'simpres-hatpen',
+    name: 'Mobile Presensi Hatpen',
+    description: 'SimPres Hatpen is an attendance system at the Aviation Health Center.',
+    tags: ['React Native', 'Expo', 'Expo', 'Zustand ', 'RN Vision Camera '],
+    tagsPreview: ['React Native', 'Expo', 'Expo', 'Zustand ', 'RN Vision Camera '],
+    timeframe: '2025',
+    repo: 'https://github.com/matijaoe/wordware',
+    url: 'https://wordware.vercel.app/',
+    thumbnail: '/projects/presensi-hatpen.png',
+    categories: [Category.projects],
+    color: '#26252b',
+  },
+  // {
+  //   slug: 'bit-complete',
+  //   name: 'Bit Complete',
+  //   description: 'Tool for generating a valid 24th word for a BIP39 seed phrase',
+  //   tags: ['Vue', 'TypeScript', 'Pico CSS', 'bitcoin'],
+  //   tagsPreview: ['Vue', 'ts', 'Pico CSS', 'bitcoin'],
+  //   timeframe: '2024',
+  //   repo: 'https://github.com/matijaoe/seed-finisher',
+  //   url: 'https://seed-finisher.vercel.app/',
+  //   thumbnail: '/projects/bit-complete.webp',
+  //   categories: [Category.hobby],
+  //   color: '#027FC0',
+  // },
+  // {
+  //   slug: 'bip39-lookup',
+  //   name: 'BIP39 lookup',
+  //   description: 'BIP39 word lookup tool',
+  //   tags: ['SvelteKit', 'TypeScript', 'Tailwind', 'bitcoin'],
+  //   tagsPreview: ['svelte', 'ts', 'Tailwind', 'bitcoin'],
+  //   timeframe: '2022',
+  //   repo: 'https://github.com/matijaoe/bip39-lookup',
+  //   url: 'https://bip39-rosy.vercel.app',
+  //   thumbnail: '/projects/btc-tools.webp',
+  //   categories: [Category.hobby],
+  //   color: '#F97315',
+  // },
+  // {
+  //   slug: 'bitcoin-ticker',
+  //   name: 'Bitcoin Ticker',
+  //   description: 'Real-time Bitcoin price tracker pulling data from multiple exchanges via WebSockets',
+  //   tags: ['Vue', 'Tailwind', 'bitcoin'],
+  //   timeframe: '2024',
+  //   repo: 'https://github.com/matijaoe/bitcoin-ticker',
+  //   url: 'https://bitcoin-ticker-seven.vercel.app/',
+  //   thumbnail: '/projects/bitcoin-ticker.webp',
+  //   categories: [Category.hobby],
+  //   color: '#F97315',
+  // },
+  // {
+  //   slug: 'brutoneto',
+  //   name: 'Brutoneto',
+  //   description: 'Advanced salary calculator for Croatian employees. npm module, api, web.',
+  //   tags: ['TypeScript', 'Bun', 'Nitro', 'npm'],
+  //   tagsPreview: ['ts', 'Bun', 'Nitro', 'npm'],
+  //   timeframe: '2024',
+  //   url: 'https://brutoneto.vercel.app/api/neto/95000?detailed=true&yearly=true&place=zg',
+  //   repo: 'https://github.com/matijaoe/brutoneto',
+  //   color: '#f58442',
+  //   categories: [Category.modules],
+  // },
+  // {
+  //   slug: 'emojito',
+  //   name: 'Emojito',
+  //   description: 'Encode text into emojis using Unicode steganography',
+  //   tags: ['Python'],
+  //   timeframe: '2025',
+  //   repo: 'https://github.com/matijaoe/emojito',
+  //   url: 'https://pypi.org/project/emojito-py/',
+  //   categories: [Category.hobby],
+  // },
+  // {
+  //   slug: 'xpub-derive',
+  //   name: 'xpub-derive',
+  //   description: 'CLI tool for deriving bitcoin addresses',
+  //   tags: ['TypeScript', 'Bun', 'Bitcoin'],
+  //   timeframe: '2025',
+  //   repo: 'https://github.com/matijaoe/xpub-derive',
+  //   categories: [Category.hobby],
+  // },
+  // {
+  //   slug: 'favicones',
+  //   name: 'Favicônes',
+  //   description: 'Quick and easy way to use any icon as favicon',
+  //   tags: ['Nuxt', 'UnoCSS', 'iconify'],
+  //   timeframe: '2022',
+  //   repo: 'https://github.com/matijaoe/favicones',
+  //   url: 'https://favicones.vercel.app/',
+  //   thumbnail: '/projects/favicones.webp',
+  //   categories: [Category.hobby],
+  //   color: '#EA580B',
+  // },
+  // {
+  //   slug: 'meet-mia',
+  //   name: 'MeetMia',
+  //   description: 'Cake shop concept project',
+  //   tags: ['Vue', 'Vite', 'TypeScript', 'SCSS'],
+  //   timeframe: '2021',
+  //   repo: 'https://github.com/matijaoe/meet-mia',
+  //   url: 'https://meet-mia.surge.sh/',
+  //   thumbnail: '/projects/meetmia/thumbnail.webp',
+  //   images: [
+  //     '/projects/meetmia/01.webp',
+  //   ],
+  //   categories: [Category.hobby],
+  //   color: '#F6AF93',
+  // },
+  // {
+  //   slug: 'comet',
+  //   name: 'Comet',
+  //   description: 'Video streaming platform mockup',
+  //   tags: ['HTML', 'SCSS', 'JavaScript'],
+  //   timeframe: '2020',
+  //   repo: 'https://github.com/matijaoe/comet',
+  //   url: 'https://comet-blush.vercel.app',
+  //   thumbnail: '/projects/comet.webp',
+  //   categories: [Category.hobby],
+  //   color: '#EA2026',
+  // },
+  // {
+  //   slug: 'utilipea',
+  //   name: 'Utilipea',
+  //   description: 'Yet another utility library',
+  //   tags: ['TypeScript', 'Bun', 'Vitest', 'npm'],
+  //   tagsPreview: ['ts', 'Bun', 'Vitest', 'npm'],
+  //   timeframe: '2023/24',
+  //   repo: 'https://github.com/matijaoe/utilipea',
+  //   categories: [Category.modules],
+  //   color: '#A8B1FF',
+  // },
+  // {
+  //   slug: 'vue-ecosystem-snippets',
+  //   name: 'Vue Ecosystem Snippets',
+  //   description: 'Snippets for the modern Vue ecosystem',
+  //   timeframe: '2023',
+  //   url: 'https://marketplace.visualstudio.com/items?itemName=matijao.vue-nuxt-snippets',
+  //   repo: 'https://github.com/mat2ja/vue-ecosystem-snippets',
+  //   thumbnail: '/projects/vue-ecosystem-snippets.png',
+  //   tags: ['Deno', 'TypeScript', 'VSCode'],
+  //   tagsPreview: ['Deno', 'ts', 'VSCode'],
+  //   categories: [Category.extensions],
+  //   color: '#1FBE4B',
+  // },
+  // {
+  //   slug: 'modern-javascript-snippets',
+  //   name: 'Modern JavaScript Snippets',
+  //   description: 'Code snippets for modern JavaScript & TypeScript',
+  //   timeframe: '2023',
+  //   url: 'https://marketplace.visualstudio.com/items?itemName=matijao.modern-js-snippets',
+  //   repo: 'https://github.com/mat2ja/modern-javascript-snippets',
+  //   thumbnail: '/projects/modern-javascript-snippets.png',
+  //   tags: ['Deno', 'TypeScript', 'VSCode'],
+  //   tagsPreview: ['Deno', 'ts', 'VSCode'],
+  //   categories: [Category.extensions],
+  //   color: '#E8D44D',
+  // },
+  // {
+  //   slug: 'url-query-editor',
+  //   name: 'URL Query Editor',
+  //   description: 'Simple but powerful Chrome extension for editing URL query parameters',
+  //   timeframe: '2023',
+  //   repo: 'https://github.com/matijaoe/url-query-editor',
+  //   thumbnail: '/projects/url-query-editor.webp',
+  //   tags: ['Svelte', 'Tailwind', 'Chromium'],
+  //   categories: [Category.extensions],
+  //   color: '#17B7A6',
+  // },
+  // {
+  //   slug: 'pnpm-plugin-zsh',
+  //   name: 'pnpm.plugin.zsh',
+  //   description: 'Oh My Zsh aliases for common pnpm commands',
+  //   timeframe: '2023',
+  //   repo: 'https://github.com/matijaoe/pnpm.plugin.zsh',
+  //   tags: ['Zsh', 'pnpm'],
+  //   categories: [Category.extensions],
+  // },
+  // {
+  //   slug: 'audible-hq-cover',
+  //   name: 'Audible HQ Cover',
+  //   description: 'Userscript for obtaining full-res Audible covers',
+  //   timeframe: '2024',
+  //   repo: 'https://github.com/matijaoe/audible-hq-cover',
+  //   url: 'https://greasyfork.org/en/scripts/511910-audible-hq-cover',
+  //   tags: ['js'],
+  //   categories: [Category.extensions],
+  //   color: '#0CBDF0',
+
+  // },
+  // {
+  //   slug: 'nuxt-starter',
+  //   name: 'Nuxt Uno Starter',
+  //   description: 'Nuxt 3 & UnoCSS starter template',
+  //   timeframe: '2023',
+  //   repo: 'https://github.com/matijaoe/nuxt-starter',
+  //   url: 'https://the-nuxt-starter.vercel.app/',
+  //   thumbnail: '/projects/nuxt-starter.png',
+  //   tags: ['Nuxt', 'UnoCSS'],
+  //   categories: [Category.templates],
+  //   color: '#01DC82',
+  // },
+  // {
+  //   slug: 'vue-starter',
+  //   name: 'Vue Uno Starter',
+  //   description: 'Vue & UnoCSS starter template',
+  //   timeframe: '2023',
+  //   repo: 'https://github.com/matijaoe/vue-starter',
+  //   url: 'https://vue-uno-starter.vercel.app/',
+  //   thumbnail: '/projects/vue-starter.webp',
+  //   tags: ['Vue', 'UnoCSS'],
+  //   categories: [Category.templates],
+  //   color: '#079669',
+  // },
+  // {
+  //   slug: 'advent-of-code-template',
+  //   name: 'AoC Template',
+  //   description: 'Automated Advent of Code Template',
+  //   timeframe: '2023',
+  //   repo: 'https://github.com/matijaoe/advent-of-code',
+  //   tags: ['Bun', 'TypeScript'],
+  //   tagsPreview: ['Bun', 'ts'],
+  //   categories: [Category.templates],
+  // },
+  // {
+  //   slug: 'vue-anu-starter',
+  //   name: 'Vue & Anu Starter',
+  //   description: 'Vue & Anu starter template',
+  //   timeframe: '2023',
+  //   repo: 'https://github.com/matijaoe/vue-anu-starter',
+  //   url: 'https://vue-anu-starter.vercel.app/',
+  //   tags: ['Vue', 'UnoCSS'],
+  //   categories: [Category.templates],
+  // },
+  // {
+  //   slug: 'bip39-wordlist',
+  //   name: 'BIP39 Wordlists',
+  //   description: ' Collection of English BIP39 wordlists in various formats for practical use',
+  //   timeframe: '2024',
+  //   repo: 'https://github.com/matijaoe/bip39-wordlist',
+  //   tags: ['json', 'bitcoin'],
+  //   categories: [Category.collections],
+  // },
+  // {
+  //   slug: 'bitcoin-books',
+  //   name: 'Bitcoin Books',
+  //   description: 'Curated Notion database of Bitcoin books with rich metadata and reference links',
+  //   timeframe: '2025',
+  //   url: 'https://seasoned-trader-815.notion.site/16313affa9c780d9a6dede8dc01c61d0?v=7810fd9ff53f41908faf81cc36476562',
+  //   tags: ['notion', 'bitcoin'],
+  //   categories: [Category.collections],
+  // },
+]
+
+export const useProjects = () => {
+  const uniqueCategories = computed(() => {
+    const categorySet = new Set<CategorySlug>()
+    projects.forEach((project) => {
+      project.categories.forEach((category) => {
+        categorySet.add(category)
+      })
+    })
+
+    return Array.from(categorySet).map((category) => {
+      return {
+        label: categories[category],
+        value: category,
+      }
+    })
+  })
+
+  const getProduct = (slug: string): Project | undefined => {
+    return projects.find((project) => project.slug === slug)
+  }
+
+  const getProjectsByCategory = (category: CategorySlug): Project[] => {
+    return projects.filter((project) => project.categories.includes(category))
+  }
+
+  return {
+    projects,
+    getProduct,
+    getProjectsByCategory,
+    uniqueCategories,
+  }
+}
