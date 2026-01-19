@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   modules: [
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
@@ -80,8 +81,8 @@ export default defineNuxtConfig({
     '/cv-2024': { redirect: '/cv-2024.pdf' },
     // CV aliases
     '/resume': { redirect: '/cv.pdf' },
-    '/resume-btc': { redirect: '/cv-btc.pdf' },
-    '/resume-2024': { redirect: '/cv-2024.pdf' },
+    // '/resume-btc': { redirect: '/cv-btc.pdf' },
+    // '/resume-2024': { redirect: '/cv-2024.pdf' },
     // Old site
     '/2023': { redirect: '' },
     // External links
