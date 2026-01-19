@@ -8,16 +8,18 @@ defineProps<{
 
 <template>
   <Card
-    class="group flex flex-col rounded-sm hover:bg-white/[2%] hover:backdrop-blur-3xl shadow-sm transition-all duration-700 overflow-hidden">
+    class="group flex flex-col rounded-sm hover:bg-white/[2%] hover:backdrop-blur-3xl shadow-sm transition-all duration-700 overflow-hidden"
+  >
     <NuxtLink :to="{ name: 'projects-slug', params: { slug: project.slug } }" class="flex grow flex-col">
       <div class="border-b aspect-[16/10] overflow-hidden">
         <div v-if="project.thumbnail" class="h-full grid place-content-center" :style="{ background: project.color }">
-          <img width="720" :src="project.thumbnail" alt="Thumbnail" class="w-full h-auto" />
-
+          <img width="720" :src="project.thumbnail" alt="Thumbnail" class="w-full h-auto">
         </div>
 
-        <div v-else
-          class="h-full bg-primary-foreground  text-muted-foreground/10 dark:text-muted flex items-center justify-center text-justify">
+        <div
+          v-else
+          class="h-full bg-primary-foreground  text-muted-foreground/10 dark:text-muted flex items-center justify-center text-justify"
+        >
           <div class="text-3xl font-mono font-black leading-none uppercase">
             pla<br>ceh<br>old<br>er<span class="inline text-violet-600">?</span>
           </div>
@@ -36,7 +38,7 @@ defineProps<{
       <CardContent class="grow p-4 py-0 pb-1">
         <div>
           <p class="text-muted-foreground text-sm">
-            {{ project.descriptionShort ?? project.description }}
+            {{ project.descriptionShort }}
           </p>
         </div>
       </CardContent>

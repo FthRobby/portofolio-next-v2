@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { uniqueCategories, getProjectsByCategory } = useProjects()
+const { getProjectsByCategory } = useProjects()
 
 definePageMeta({
   layout: 'default',

@@ -1,4 +1,4 @@
-<template>
+  <template>
   <section>
     <h2 class="mb-4 text-3xl font-medium font-display">
       Experience
@@ -8,11 +8,11 @@
         company="Fortis Solution"
         company-url="https://fortissolution.id/"
         company-location="Yogyakarta, Indonesia"
-        location-icon="circle-flags:nl"
+        location-icon="circle-flags:id"
         position="Frontend Developer"
         start-date="Feb 2023"
         end-date="Present"
-        slug="theydo"
+        slug="fortis"
         logo="/fortis-logo.jpg"
         :used="['Vue', 'React',  'React Native', 'TypeScript', 'Expo', 'Tailwind', 'Tamagui', 'Jira']"
       >
@@ -23,11 +23,11 @@
         company="Dicoding Indonesia"
         company-url="https://www.dicoding.com/"
         company-location="Bandung, Indonesia"
-        location-icon="circle-flags:hr"
+        location-icon="circle-flags:id"
         position="Bootcamp Mentor"
         start-date="Feb 2024"
         end-date="Jun 2024"
-        slug="4ofthem"
+        slug="dicoding"
         logo="/dicoding-logo.jpg"
         :used="['HTML', 'CSS', 'Javascript', 'PWA', 'Local Storage', 'Responsive website Layout']"
         logo-class="h-[14px]"
@@ -41,13 +41,13 @@
         company="Git Solution"
         company-url="https://www.gitsolution.co.id/"
         company-location="Yogyakarta, Indonesia"
-        location-icon="circle-flags:de"
+        location-icon="circle-flags:id"
         position="Fullstack Web Developer Intern"
         start-date="Aug 2022"
         end-date="Dec 2022"
-        slug="mannacare"
+        slug="gitsolution"
         logo="/gits-logo.jpg"
-        :used="['Vue', 'JavaScript', 'Tailwind CSS', 'Daisy Ui', 'Pinia']"
+        :used="['Vue', 'JavaScript', 'Tailwind CSS', 'Daisy Ui', 'Pinia', 'Vuex']"
       >
         <template #default>
           Developed features for the restaurant platform to make it easier for customers to order and make payments, and to make it easier for owners to manage restaurant finances.

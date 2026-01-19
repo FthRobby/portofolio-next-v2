@@ -26,3 +26,23 @@ export const Category = {
 } as const
 
 export type CategorySlug = typeof Category[keyof typeof Category]
+
+
+export const CategoryType = {
+  certification: 'certifications',
+  awards: 'awards'
+} as const
+
+export type CategoryTypeValue =
+  typeof CategoryType[keyof typeof CategoryType]
+
+export type Certificate = {
+  id: number
+  name: string
+  issuer?: string
+  issueDate?: string
+  credentialID?: string
+  credentialURL?: string
+  thumbnail?: string
+  type: CategoryTypeValue
+}

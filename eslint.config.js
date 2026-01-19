@@ -1,9 +1,6 @@
 import antfu from '@antfu/eslint-config'
 
 export default antfu({
-  typescript: {
-    tsconfigPath: 'tsconfig.json',
-  },
 
   formatters: {
     css: false,
@@ -102,6 +99,9 @@ export default antfu({
 
       // override
       'ts/unbound-method': 'off',
+      'rules': {
+        'unused-imports/no-unused-vars': 'off',
+      },
     },
   },
 

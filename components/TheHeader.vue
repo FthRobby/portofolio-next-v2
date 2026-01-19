@@ -8,6 +8,7 @@ const links: { to: RouteLocationRaw, label: string, key: string }[] = [
   { to: { name: 'index' }, label: 'Home', key: 'H' },
   { to: { name: 'about' }, label: 'About', key: 'A' },
   { to: { name: 'projects' }, label: 'Projects', key: 'P' },
+  {to: { name: 'contact' }, label: 'Contact', key: 'C' },
   // { to: { name: 'uses' }, label: 'Uses', key: 'U' },
 ]
 
@@ -35,16 +36,9 @@ const activeLinkClass = '!text-foreground hover:text-foreground'
           <template #content>
             ⌘ J
           </template>
-          <Button
-            variant="link"
-            size="icon"
-            class="translate-y-0.5"
-            @click="toggleDark"
-          >
-            <Icon
-              name="ph:yin-yang-fill"
-              class="text-[24px] transition-transform duration-300 ease-in-out hover:rotate-90 dark:rotate-180 hover:dark:rotate-[270deg]"
-            />
+          <Button variant="link" size="icon" class="translate-y-0.5" @click="toggleDark">
+            <Icon name="ph:yin-yang-fill"
+              class="text-[24px] transition-transform duration-300 ease-in-out hover:rotate-90 dark:rotate-180 hover:dark:rotate-[270deg]" />
           </Button>
         </BaseTooltip>
       </div>
@@ -55,11 +49,9 @@ const activeLinkClass = '!text-foreground hover:text-foreground'
         <BaseTooltip>
           <template #content>
           </template>
-          <NuxtLink
-            :to="link.to"
+          <NuxtLink :to="link.to"
             class="text-lg text-muted-foreground  w-fit py-[0.2rem] align-middle font-medium lowercase transition-all"
-            :active-class="activeLinkClass"
-          >
+            :active-class="activeLinkClass">
             {{ link.label }}
           </NuxtLink>
         </BaseTooltip>
@@ -70,16 +62,9 @@ const activeLinkClass = '!text-foreground hover:text-foreground'
           <template #content>
             ⌘ J
           </template>
-          <Button
-            variant="link"
-            size="icon"
-            class="translate-y-0.5"
-            @click="toggleDark"
-          >
-            <Icon
-              name="ph:yin-yang-fill"
-              class="text-[24px] transition-transform duration-300 ease-in-out hover:rotate-90 dark:rotate-180 hover:dark:rotate-[270deg]"
-            />
+          <Button variant="link" size="icon" class="translate-y-0.5" @click="toggleDark">
+            <Icon name="ph:yin-yang-fill"
+              class="text-[24px] transition-transform duration-300 ease-in-out hover:rotate-90 dark:rotate-180 hover:dark:rotate-[270deg]" />
           </Button>
         </BaseTooltip>
       </div>

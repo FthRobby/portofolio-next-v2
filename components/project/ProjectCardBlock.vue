@@ -30,7 +30,7 @@ defineProps<{
         <CardContent class="p-9 py-0">
           <div>
             <p class="text-muted-foreground text-base">
-              {{ project.descriptionShort ?? project.description }}
+              {{ project.descriptionShort }}
             </p>
           </div>
         </CardContent>
@@ -39,11 +39,13 @@ defineProps<{
       </div>
 
       <div class="grid-col-2 min-h-[320px] overflow-hidden">
-        <div v-if="project.thumbnail" class="p-7 h-full grid place-content-center"
-          :style="{ background: project.color }">
+        <div
+          v-if="project.thumbnail"
+          class="p-7 h-full grid place-content-center"
+          :style="{ background: project.color }"
+        >
           <HoverPerspectiveContainer class="rounded-sm">
-            
-            <img width="720" :src="project.thumbnail" alt="Thumbnail" class="w-full h-auto" />
+            <img width="720" :src="project.thumbnail" alt="Thumbnail" class="w-full h-auto">
           </HoverPerspectiveContainer>
         </div>
 

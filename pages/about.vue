@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { CategoryType } from '~/models'
 useSeoMeta({
   title: 'About',
   ogTitle: 'About',
@@ -40,11 +41,19 @@ useSeoMeta({
 
       <AboutTechStack />
 
-      <!-- <AboutBookshelf />
-
-      <AboutPodcasts />
-
+      
+      <!-- <AboutBookshelf /> -->
+      
+      <!-- <AboutPodcasts />
+      
       <AboutMovies /> -->
+      <section class="text-default-foreground max-w-xl leading-7 prose dark:prose-invert text-base md:text-lg">
+        <h2 class="text-default-foreground font-display font-medium mb-4">
+          Professional Highlights
+        </h2>
+        <AboutAwards :type="CategoryType.awards" />
+        <AboutCertificate :type="CategoryType.certification" />
+      </section>
     </div>
   </div>
 </template>
