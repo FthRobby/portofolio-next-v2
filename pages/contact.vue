@@ -16,6 +16,18 @@ const handleSubmit = async () => {
   isLoading.value = true
   statusMessage.value = ''
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  if (!emailRegex.test(email.value)) {
+    isLoading.value = false
+    statusType.value = 'error'
+    statusMessage.value = 'Invalid email address. Please make sure it includes a domain after @.'
+    email.value = ''
+    setTimeout(() => {
+      statusMessage.value = ''
+    }, 4000)
+    return
+  }
   try {
     const { data, error } = await useFetch('/api/send-message', {
       method: 'POST',
@@ -77,7 +89,7 @@ const handleSubmit = async () => {
       updates or anything else!
     </p>
 
-    <form @submit.prevent="handleSubmit" class="mt-16 max-w-2xl space-y-8">
+    <form @submit.prevent="handleSubmit" class="mt-16 max-w-2xl space-y-8" autocomplete="off">
       <!-- Status Message -->
       <transition enter-active-class="transition-all duration-300 ease-out"
         enter-from-class="opacity-0 transform -translate-y-2" enter-to-class="opacity-100 transform translate-y-0"
@@ -115,7 +127,7 @@ const handleSubmit = async () => {
         </label>
         <textarea id="message" v-model="message" required rows="6" :disabled="isLoading"
           placeholder="Your message here..."
-          class="w-full px-0 py-2 bg-transparent text-black dark:text-white border-0 border-b-2 border-gray-300 dark:border-gray-700 focus:border-black dark:focus:border-white focus:outline-none transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-600 resize-none text-lg disabled:opacity-50 disabled:cursor-not-allowed"></textarea>
+          class="w-full h-28 px-0 bg-transparent text-black dark:text-white border-0 border-b-2  border-gray-300 dark:border-gray-700 focus:border-black dark:focus:border-white focus:outline-none transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-600 resize-none text-lg disabled:opacity-50 disabled:cursor-not-allowed"></textarea>
       </div>
 
       <!-- Submit Button -->

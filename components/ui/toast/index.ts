@@ -25,7 +25,7 @@ export const toastVariants = cva(
           'destructive bg-green-50 text-green-800 border-green-500 dark:bg-green-900/20 dark:text-green-200',
 
         error:
-          'destructive bg-red-50 text-red-800 border-red-500 dark:bg-red-900/20 dark:text-red-200',
+          'destructive bg-destructive bg-red-50 text-red-800 border-red-500 dark:bg-red-900/20 dark:text-red-200',
 
       },
     },
