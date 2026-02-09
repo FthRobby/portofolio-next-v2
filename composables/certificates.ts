@@ -46,8 +46,26 @@ const certificates: Certificate[] = [
     name: 'Meta Certificate Programming with JavaScript',
     type: 'certifications',
     thumbnail: '/cert/js.webp'
-
-  }
+  },
+  {
+    id: 6,
+    name: 'Meta Certificate React Basics',
+    type: 'certifications',
+    thumbnail: '/cert/react_basic.webp'
+  },
+  {
+    id: 7,
+    name: 'Meta Certificate React Advanced',
+    type: 'certifications',
+    thumbnail: '/cert/react_advanced.webp'
+  },
+  {
+    id: 8,
+    name: 'Meta Certificate React Native',
+    type: 'certifications',
+    thumbnail: '/cert/react_native.webp'
+  },
+  
 ]
 
 export const useCertificates = () => {
