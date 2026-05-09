@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
     '@vueuse/nuxt',
+    '@nuxtjs/i18n',
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxt/icon',
@@ -29,6 +30,32 @@ export default defineNuxtConfig({
 
   colorMode: {
     classSuffix: '',
+  },
+
+  i18n: {
+    defaultLocale: 'id',
+    strategy: 'no_prefix',
+    langDir: 'locales',
+    locales: [
+      {
+        code: 'id',
+        name: 'Indonesia',
+        language: 'id-ID',
+        file: 'id.json',
+      },
+      {
+        code: 'en',
+        name: 'English',
+        language: 'en-US',
+        file: 'en.json',
+      },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+      fallbackLocale: 'id',
+    },
   },
 
   shadcn: {

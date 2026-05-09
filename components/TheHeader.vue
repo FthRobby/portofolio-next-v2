@@ -2,24 +2,32 @@
 import type { RouteLocationRaw } from '#vue-router'
 
 const { toggleDark } = useTheme()
+const { locale, setLocale, t } = useI18n()
 
-const route = useRoute()
-const links: { to: RouteLocationRaw, label: string, key: string }[] = [
-  { to: { name: 'index' }, label: 'Home', key: 'H' },
-  { to: { name: 'about' }, label: 'About', key: 'A' },
-  { to: { name: 'projects' }, label: 'Projects', key: 'P' },
-  {to: { name: 'contact' }, label: 'Contact', key: 'C' },
-  // { to: { name: 'uses' }, label: 'Uses', key: 'U' },
+const links: { to: RouteLocationRaw, labelKey: string }[] = [
+  { to: { name: 'index' }, labelKey: 'nav.home' },
+  { to: { name: 'about' }, labelKey: 'nav.about' },
+  { to: { name: 'projects' }, labelKey: 'nav.projects' },
+  { to: { name: 'contact' }, labelKey: 'nav.contact' },
+  // { to: { name: 'uses' }, labelKey: 'nav.uses' },
 ]
 
-const { H, A, P, U } = useMagicKeys({
-  passive: false,
+const localeOptions = [
+  { code: 'id', flag: '/id.png', labelKey: 'language.id' },
+  { code: 'en', flag: '/en.png', labelKey: 'language.en' },
+] as const
+
+const activeLocaleOption = computed(() => {
+  return localeOptions.find(item => item.code === locale.value) ?? localeOptions[0]
 })
 
-// watch(H, () => navigateTo('/'))
-// watch(A, () => navigateTo('/about'))
-// watch(P, () => navigateTo('/projects'))
-// watch(U, () => navigateTo('/uses'))
+const nextLocaleOption = computed(() => {
+  return localeOptions.find(item => item.code !== locale.value) ?? localeOptions[1]
+})
+
+async function toggleLocale() {
+  await setLocale(nextLocaleOption.value.code)
+}
 
 const activeLinkClass = '!text-foreground hover:text-foreground'
 </script>
@@ -31,16 +39,25 @@ const activeLinkClass = '!text-foreground hover:text-foreground'
         @frobby
       </NuxtLink>
 
-      <div class="flex md:hidden items-center gap-5 translate-y-1">
+      <div class="flex md:hidden items-center gap-3 translate-y-1 ">
         <BaseTooltip>
           <template #content>
             ⌘ J
           </template>
           <Button variant="link" size="icon" class="translate-y-0.5" @click="toggleDark">
             <Icon name="ph:yin-yang-fill"
-              class="text-[24px] transition-transform duration-300 ease-in-out hover:rotate-90 dark:rotate-180 hover:dark:rotate-[270deg]" />
+            class="text-[24px] transition-transform duration-300 ease-in-out hover:rotate-90 dark:rotate-180 hover:dark:rotate-[270deg]" />
           </Button>
         </BaseTooltip>
+        <button
+          type="button"
+          class="grid size-7 mt-1 place-items-center rounded-full ring-offset-background transition hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          :aria-label="t(nextLocaleOption.labelKey)"
+          :title="t(nextLocaleOption.labelKey)"
+          @click="toggleLocale"
+        >
+          <img :src="activeLocaleOption.flag" :alt="t(activeLocaleOption.labelKey)" class="size-6 rounded-full object-cover">
+        </button>
       </div>
     </div>
 
@@ -52,12 +69,23 @@ const activeLinkClass = '!text-foreground hover:text-foreground'
           <NuxtLink :to="link.to"
             class="text-lg text-muted-foreground  w-fit py-[0.2rem] align-middle font-medium lowercase transition-all"
             :active-class="activeLinkClass">
-            {{ link.label }}
+            {{ t(link.labelKey) }}
           </NuxtLink>
         </BaseTooltip>
       </template>
+      
+      <div class="hidden md:flex items-center gap-4">
+        <button
+          type="button"
+          class="grid 
+          size-7 place-items-center rounded-full ring-offset-background transition hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          :aria-label="t(nextLocaleOption.labelKey)"
+          :title="t(nextLocaleOption.labelKey)"
+          @click="toggleLocale"
+        >
+          <img :src="activeLocaleOption.flag" :alt="t(activeLocaleOption.labelKey)" class="size-9 w-10 rounded-full object-cover">
+        </button>
 
-      <div class="hidden md:flex items-center gap-5">
         <BaseTooltip>
           <template #content>
             ⌘ J

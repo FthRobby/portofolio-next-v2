@@ -1,0 +1,56 @@
+{
+  "language": {
+    "id": "Indonesian",
+    "en": "English"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "location": "Yogyakarta, Indonesia",
+    "hero": {
+      "greeting": "Hola, I'm Robby,",
+      "buildPrefix": "I build ",
+      "highlight": "mobile apps",
+      "withPrefix": "with a",
+      "mindset": "frontend mindset"
+    },
+    "intro": {
+      "rolePrefix": "React Native Developer, currently at ",
+      "roleSuffix": ".",
+      "focus": "I focus on building high-quality mobile applications with great UX, performance, and attention to detail.",
+      "growth": "I enjoy crafting cross-platform, mobile-first experiences and continuously expanding my skills toward full-stack mobile development."
+    },
+    "cta": {
+      "about": "About me"
+    },
+    "links": {
+      "resume": "Resume"
+    },
+    "experience": {
+      "title": "Experience",
+      "present": "Present",
+      "fortis": {
+        "position": "Frontend Developer",
+        "startDate": "Feb 2023",
+        "description": "Developing frontend web and mobile applications based on established designs, while prioritizing functionality, performance, and security."
+      },
+      "dicoding": {
+        "location": "Bandung, Indonesia",
+        "position": "Bootcamp Mentor",
+        "startDate": "Feb 2024",
+        "endDate": "Jun 2024",
+        "description": "Lead, assist, and maintain a conducive and safe learning environment for all bootcamp participants, providing consultative learning support to students."
+      },
+      "gitsolution": {
+        "position": "Fullstack Web Developer Intern",
+        "startDate": "Aug 2022",
+        "endDate": "Dec 2022",
+        "description": "Developed features for the restaurant platform to make it easier for customers to order and make payments, and to make it easier for owners to manage restaurant finances."
+      }
+    }
+  }
+}

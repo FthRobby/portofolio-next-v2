@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 type LinkItem = { label: string, links: { linkText: string, link: string, clickToCopy?: boolean }[] }
 
-const links = [
+const { t } = useI18n()
+
+const links = computed<LinkItem[]>(() => [
   {
     label: 'GitHub',
     links: [{ linkText: 'fthrobby', link: 'https://github.com/fthrobby' }],
@@ -19,12 +21,12 @@ const links = [
   //   links: [{ linkText: 'robbysalamf@gmailo.com', link: 'mailto:hi@matijao.com', clickToCopy: true }],
   // },
   {
-    label: 'Resume',
+    label: t('home.links.resume'),
     links: [
       { linkText: 'cv.pdf', link: '/cv.pdf' },
     ],
   },
-] satisfies LinkItem[]
+])
 </script>
 
 <template>

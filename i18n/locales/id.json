@@ -1,0 +1,56 @@
+{
+  "language": {
+    "id": "Bahasa Indonesia",
+    "en": "Bahasa Inggris"
+  },
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "projects": "Proyek",
+    "contact": "Kontak"
+  },
+  "home": {
+    "location": "Yogyakarta, Indonesia",
+    "hero": {
+      "greeting": "Hola, saya Robby,",
+      "buildPrefix": "saya membuat ",
+      "highlight": "aplikasi mobile",
+      "withPrefix": "dengan",
+      "mindset": "pola pikir frontend"
+    },
+    "intro": {
+      "rolePrefix": "React Native Developer, saat ini di ",
+      "roleSuffix": ".",
+      "focus": "Saya fokus membangun aplikasi mobile berkualitas tinggi dengan UX yang baik, performa yang optimal, dan perhatian pada detail.",
+      "growth": "Saya senang membuat pengalaman lintas platform yang mobile-first dan terus mengembangkan kemampuan menuju full-stack mobile development."
+    },
+    "cta": {
+      "about": "Tentang saya"
+    },
+    "links": {
+      "resume": "Resume"
+    },
+    "experience": {
+      "title": "Pengalaman",
+      "present": "Sekarang",
+      "fortis": {
+        "position": "Frontend Developer",
+        "startDate": "Feb 2023",
+        "description": "Mengembangkan aplikasi web dan mobile frontend berdasarkan desain yang sudah ditentukan, dengan memprioritaskan fungsionalitas, performa, dan keamanan."
+      },
+      "dicoding": {
+        "location": "Bandung, Indonesia",
+        "position": "Mentor Bootcamp",
+        "startDate": "Feb 2024",
+        "endDate": "Jun 2024",
+        "description": "Memimpin, mendampingi, dan menjaga lingkungan belajar yang kondusif serta aman bagi seluruh peserta bootcamp, sekaligus memberikan dukungan pembelajaran konsultatif kepada siswa."
+      },
+      "gitsolution": {
+        "position": "Fullstack Web Developer Intern",
+        "startDate": "Agu 2022",
+        "endDate": "Des 2022",
+        "description": "Mengembangkan fitur untuk platform restoran agar pelanggan lebih mudah melakukan pemesanan dan pembayaran, serta membantu pemilik restoran mengelola keuangan dengan lebih mudah."
+      }
+    }
+  }
+}
