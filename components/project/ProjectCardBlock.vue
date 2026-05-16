@@ -1,9 +1,17 @@
 <script lang="ts" setup>
 import type { Project } from '~/models'
 
-defineProps<{
+const props = defineProps<{
   project: Project
 }>()
+
+const { t } = useI18n()
+
+const descriptionShort = computed(() => {
+  return props.project.descriptionShortKey
+    ? t(props.project.descriptionShortKey)
+    : props.project.descriptionShort
+})
 </script>
 
 <template>
@@ -15,7 +23,7 @@ defineProps<{
             <template v-for="tag in project.tagsPreview || project.tags" :key="tag">
               <Badge class="font-mono lowercase text-nowrap" variant="outline">
                 {{ tag }}
-              </badge>
+              </Badge>
             </template>
           </div>
 
@@ -30,7 +38,7 @@ defineProps<{
         <CardContent class="p-9 py-0">
           <div>
             <p class="text-muted-foreground text-base">
-              {{ project.descriptionShort }}
+              {{ descriptionShort }}
             </p>
           </div>
         </CardContent>

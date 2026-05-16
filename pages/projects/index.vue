@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 const { getProjectsByCategory } = useProjects()
+const { t } = useI18n()
 
 definePageMeta({
   layout: 'default',
 })
 
 useSeoMeta({
-  title: 'Projects',
-  ogTitle: 'Projects',
+  title: () => t('projects.meta.title'),
+  ogTitle: () => t('projects.meta.title'),
 })
 </script>
 
@@ -16,7 +17,7 @@ useSeoMeta({
   <div class="grid grid-cols-1 gap-12">
     <div>
       <PageHeading class="mb-6">
-        Projects
+        {{ t('projects.title') }}
       </PageHeading>
 
       <div class="content-stretch flex flex-col items-stretch justify-stretch gap-8">

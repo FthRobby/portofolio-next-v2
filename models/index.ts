@@ -2,7 +2,9 @@ export type Project = {
   slug: string
   name: string
   description: string
+  descriptionKey?: string
   descriptionShort?: string
+  descriptionShortKey?: string
   tags: string[]
   tagsPreview?: string[]
   timeframe: string
@@ -39,6 +41,7 @@ export type CategoryTypeValue =
 export type Certificate = {
   id: number
   name: string
+  nameKey?: string
   issuer?: string
   issueDate?: string
   credentialID?: string

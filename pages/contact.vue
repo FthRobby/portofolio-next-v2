@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-import { toast, useToast } from '~/components/ui/toast'
+import { toast } from '~/components/ui/toast'
+
+const { t } = useI18n()
+
 useSeoMeta({
-  title: 'Contact',
-  ogTitle: 'Contact',
+  title: () => t('contact.meta.title'),
+  ogTitle: () => t('contact.meta.title'),
 })
 
 const nama = ref('')
@@ -21,7 +24,7 @@ const handleSubmit = async () => {
   if (!emailRegex.test(email.value)) {
     isLoading.value = false
     statusType.value = 'error'
-    statusMessage.value = 'Invalid email address. Please make sure it includes a domain after @.'
+    statusMessage.value = t('contact.status.invalidEmail')
     email.value = ''
     setTimeout(() => {
       statusMessage.value = ''
@@ -29,13 +32,13 @@ const handleSubmit = async () => {
     return
   }
   try {
-    const { data, error } = await useFetch('/api/send-message', {
+    const { error } = await useFetch('/api/send-message', {
       method: 'POST',
       body: {
         nama: nama.value,
         email: email.value,
-        body: message.value
-      }
+        body: message.value,
+      },
     })
 
     if (error.value) {
@@ -43,7 +46,7 @@ const handleSubmit = async () => {
     }
 
     statusType.value = 'success'
-    statusMessage.value = 'Message successfully sent!'
+    statusMessage.value = t('contact.status.success')
 
     nama.value = ''
     email.value = ''
@@ -54,25 +57,25 @@ const handleSubmit = async () => {
     }, 5000)
 
     toast({
-      title: 'Message Sent',
-      description: 'Thanks for reaching out. I’ll get back to you soon.',
+      title: t('contact.toast.success.title'),
+      description: t('contact.toast.success.description'),
       variant: 'success',
     })
   } catch (error: any) {
     statusType.value = 'error'
-    statusMessage.value = error?.data?.message || 'Failed to send message. Please try again.'
+    statusMessage.value = error?.data?.message || t('contact.status.error')
     console.error('Error:', error)
     toast({
-      title: 'Failed to send message',
+      title: t('contact.toast.error.title'),
       description:
-        error?.data?.message || 'Something went wrong. Please try again.',
+        error?.data?.message || t('contact.toast.error.description'),
       variant: 'error',
     })
   } finally {
     isLoading.value = false
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   }
 }
@@ -81,12 +84,10 @@ const handleSubmit = async () => {
 <template>
   <div>
     <PageHeading>
-      What's Next?
+      {{ t('contact.title') }}
     </PageHeading>
     <p class="w-full md:w-1/2 lg:w-1/2 text-gray-600 dark:text-gray-400">
-      My inbox is always open! Whether it's a question or just to say hi, I'll get
-      back to you as soon as I can. Feel free to message me anytime with
-      updates or anything else!
+      {{ t('contact.description') }}
     </p>
 
     <form @submit.prevent="handleSubmit" class="mt-16 max-w-2xl space-y-8" autocomplete="off">
@@ -105,28 +106,28 @@ const handleSubmit = async () => {
       <!-- Name Input -->
       <div class="group">
         <label for="nama" class="block text-sm font-medium mb-3 text-gray-700 dark:text-gray-300 transition-colors">
-          Name
+          {{ t('contact.form.name.label') }}
         </label>
-        <input id="nama" v-model="nama" type="text" required :disabled="isLoading" placeholder="Your name"
+        <input id="nama" v-model="nama" type="text" required :disabled="isLoading" :placeholder="t('contact.form.name.placeholder')"
           class="w-full px-0 py-4 bg-transparent text-black dark:text-white border-0 border-b-2 border-gray-300 dark:border-gray-700 focus:border-black dark:focus:border-white focus:outline-none transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-600 text-lg disabled:opacity-50 disabled:cursor-not-allowed" />
       </div>
 
       <!-- Email Input -->
       <div class="group">
         <label for="email" class="block text-sm font-medium mb-3 text-gray-700 dark:text-gray-300 transition-colors">
-          Email
+          {{ t('contact.form.email.label') }}
         </label>
-        <input id="email" v-model="email" type="email" required :disabled="isLoading" placeholder="your@email.com"
+        <input id="email" v-model="email" type="email" required :disabled="isLoading" :placeholder="t('contact.form.email.placeholder')"
           class="w-full px-0 py-4 bg-transparent text-black dark:text-white border-0 border-b-2 border-gray-300 dark:border-gray-700 focus:border-black dark:focus:border-white focus:outline-none transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-600 text-lg disabled:opacity-50 disabled:cursor-not-allowed" />
       </div>
 
       <!-- Message Textarea -->
       <div class="group">
         <label for="message" class="block text-sm font-medium mb-3 text-gray-700 dark:text-gray-300 transition-colors">
-          Message
+          {{ t('contact.form.message.label') }}
         </label>
         <textarea id="message" v-model="message" required rows="6" :disabled="isLoading"
-          placeholder="Your message here..."
+          :placeholder="t('contact.form.message.placeholder')"
           class="w-full h-28 px-0 bg-transparent text-black dark:text-white border-0 border-b-2  border-gray-300 dark:border-gray-700 focus:border-black dark:focus:border-white focus:outline-none transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-600 resize-none text-lg disabled:opacity-50 disabled:cursor-not-allowed"></textarea>
       </div>
 
@@ -137,7 +138,7 @@ const handleSubmit = async () => {
           <span class="relative z-10 flex items-center gap-2">
             <span v-if="isLoading"
               class="inline-block w-4 h-4 border-2 border-white dark:border-black border-t-transparent rounded-full animate-spin"></span>
-            {{ isLoading ? 'Sending...' : 'Send Message' }}
+            {{ isLoading ? t('contact.form.submit.loading') : t('contact.form.submit.default') }}
           </span>
           <div
             class="absolute inset-0 bg-gradient-to-r from-gray-800 to-black dark:from-gray-200 dark:to-white opacity-0 group-hover:opacity-100 transition-opacity">

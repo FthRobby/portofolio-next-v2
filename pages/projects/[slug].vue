@@ -1,16 +1,21 @@
 <script lang="ts" setup>
-import { ChevronRightIcon, ChevronLeftIcon } from '@radix-icons/vue';
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
+
 const route = useRoute('projects-slug')
-const props = defineProps<{
-  images: string[]
-}>()
 
 const currentIndex = ref(0)
 
 const { getProduct } = useProjects()
+const { t } = useI18n()
 const project = computed(() => {
   const { slug } = route.params
   return typeof slug === 'string' ? getProduct(slug) : undefined
+})
+
+const projectDescription = computed(() => {
+  return project.value?.descriptionKey
+    ? t(project.value.descriptionKey)
+    : project.value?.description
 })
 
 const images = computed(() => {
@@ -21,14 +26,9 @@ const images = computed(() => {
   return thumbnail ? [thumbnail] : []
 })
 
-const imageBgColor = computed(() => {
-  const { color } = project.value ?? {}
-  return color ?? 'transparent'
-})
-
 useSeoMeta({
-  title: () => project.value?.name ?? 'Projects',
-  ogTitle: () => project.value?.name ?? 'Projects',
+  title: () => project.value?.name ?? t('projects.meta.title'),
+  ogTitle: () => project.value?.name ?? t('projects.meta.title'),
 })
 </script>
 
@@ -42,15 +42,15 @@ useSeoMeta({
 
         <div class="hidden md:flex items-center gap-3 mt-2">
           <Button to="/projects" variant="frosted-ghost" class="flex items-center gap-2 lowercase">
-            <Icon name="lucide:arrow-left" class="text-[1.2em]" /> Back
+            <Icon name="lucide:arrow-left" class="text-[1.2em]" /> {{ t('projects.actions.back') }}
           </Button>
           <Button v-if="project.repo" :to="project.repo" external target="_blank" variant="secondary"
             class="flex items-center gap-2 lowercase">
-            <Icon name="lucide:code" class="text-[1.2em]" /> Code
+            <Icon name="lucide:code" class="text-[1.2em]" /> {{ t('projects.actions.code') }}
           </Button>
           <Button v-if="project.url" :to="project.url" external target="_blank" variant="default"
             class="flex items-center gap-2 lowercase">
-            <Icon name="lucide:arrow-up-right" class="text-[1.2em]" /> Live
+            <Icon name="lucide:arrow-up-right" class="text-[1.2em]" /> {{ t('projects.actions.live') }}
           </Button>
         </div>
       </div>
@@ -66,16 +66,16 @@ useSeoMeta({
 
         <div class="flex md:hidden flex-wrap items-center gap-2">
           <Button to="/projects" variant="frosted-ghost" class="flex items-center gap-2 lowercase">
-            <Icon name="lucide:arrow-left" class="text-[1.2em]" /> Back
+            <Icon name="lucide:arrow-left" class="text-[1.2em]" /> {{ t('projects.actions.back') }}
           </Button>
           <NuxtLink :to="project.repo" external target="_blank" class="block md:hidden">
             <Badge class="font-mono lowercase text-nowrap flex items-center gap-1" variant="secondary-border">
-              <Icon name="lucide:code" /> code
+              <Icon name="lucide:code" /> {{ t('projects.actions.code') }}
             </Badge>
           </NuxtLink>
           <NuxtLink :to="project.url" external target="_blank" class="block md:hidden">
             <Badge class="font-mono lowercase text-nowrap flex items-center gap-1" variant="primary">
-              <Icon name="lucide:arrow-up-right" /> live
+              <Icon name="lucide:arrow-up-right" /> {{ t('projects.actions.live') }}
             </Badge>
           </NuxtLink>
         </div>
@@ -83,7 +83,7 @@ useSeoMeta({
 
       <div class="mt-5 font-sans text-base md:text-lg max-w-3xl">
         <p>
-          {{ project.description }}
+          {{ projectDescription }}
         </p>
       </div>
 

@@ -1,9 +1,17 @@
 <script lang="ts" setup>
 import type { Project } from '~/models'
 
-defineProps<{
+const props = defineProps<{
   project: Project
 }>()
+
+const { t } = useI18n()
+
+const descriptionShort = computed(() => {
+  return props.project.descriptionShortKey
+    ? t(props.project.descriptionShortKey)
+    : props.project.descriptionShort
+})
 </script>
 
 <template>
@@ -38,7 +46,7 @@ defineProps<{
       <CardContent class="grow p-4 py-0 pb-1">
         <div>
           <p class="text-muted-foreground text-sm">
-            {{ project.descriptionShort }}
+            {{ descriptionShort }}
           </p>
         </div>
       </CardContent>

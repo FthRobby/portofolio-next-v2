@@ -9,6 +9,91 @@
     "projects": "Projects",
     "contact": "Contact"
   },
+  "contact": {
+    "meta": {
+      "title": "Contact"
+    },
+    "title": "What's Next?",
+    "description": "My inbox is always open! Whether it's a question or just to say hi, I'll get back to you as soon as I can. Feel free to message me anytime with updates or anything else!",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Your Email"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message here..."
+      },
+      "submit": {
+        "default": "Send Message",
+        "loading": "Sending..."
+      }
+    },
+    "status": {
+      "invalidEmail": "Invalid email address.",
+      "success": "Message successfully sent!",
+      "error": "Failed to send message. Please try again."
+    },
+    "toast": {
+      "success": {
+        "title": "Message Sent",
+        "description": "Thanks for reaching out. I'll get back to you soon."
+      },
+      "error": {
+        "title": "Failed to send message",
+        "description": "Something went wrong. Please try again."
+      }
+    }
+  },
+  "projects": {
+    "meta": {
+      "title": "Projects"
+    },
+    "title": "Projects",
+    "actions": {
+      "back": "Back",
+      "code": "Code",
+      "live": "Live"
+    },
+    "items": {
+      "simpresHatpen": {
+        "description": "SimPres Hatpen is the official app for managing employee attendance at the Aviation Health Center. With the support of Face Recognition technology, SimPres Hatpen ensures a faster, safer, and more accurate attendance process. The app also makes it easy to track attendance history and submit leave or absence requests online, giving employees greater flexibility in managing their attendance.",
+        "descriptionShort": "An employee attendance app using face recognition to enable fast, secure check-ins, attendance tracking, and online leave requests."
+      },
+      "epresensiSemeru": {
+        "description": "This application provides a practical solution by enabling personnel to attend activities digitally using mobile devices. With integrated and secure features, ePresence helps increase efficiency in managing attendance data and makes it easier to monitor attendance in operational activities.",
+        "descriptionShort": "Official application designed to simplify the activity attendance process for all East Java Regional Police personnel."
+      },
+      "itaniSahabatPetani": {
+        "description": "Itani is a digital farmery platform based on websites and mobile apps which provides easy solutions for #DigitalFarmers in getting 3P (Financing, Assistance with land processing and Harvest Processing). This technology is designed to answer the needs of #DigitalFarmers for knowledge about the commodities they are working on.",
+        "descriptionShort": "A digital platform designed to support Digital Farmers with financing, land management, and harvest processing solutions."
+      },
+      "imanhub": {
+        "description": "This application is designed for users of all ages, both young and old. It not only features online Quran reading, but also includes a Qibla direction feature, a collection of authentic hadith readings, and a tasbih counter. Additionally, the application offers a collection of daily prayers. The technology used in developing this application includes Expo as a powerful multiplatform app framework and Gluestack UI for styling components.",
+        "descriptionShort": "An all-in-one Islamic app providing Quran reading, Qibla direction, hadith collections, tasbih counter, and daily prayers for users of all ages."
+      },
+      "smartTernakDashboard": {
+        "description": "This dashboard was created to monitor the condition of broiler livestock. It integrates a WebSocket system and connects in real time with IoT devices in the cage to monitor air temperature, humidity, ammonia levels, air flow, water flow, and light intensity. This web app can also be used to record when livestock are ready for distribution or sale. I was assigned to work on the front end of this dashboard in collaboration with the backend and IoT teams. The technologies used include VueJS, Bootstrap, Pinia, and Axios for API communication.",
+        "descriptionShort": "A web-based dashboard for monitoring broiler livestock conditions in real time, integrating IoT devices to track environmental metrics and manage distribution readiness."
+      },
+      "smartFarmDashboard": {
+        "description": "Just like the Smart-Ternak dashboard, the SmartFarm Dashboard is also used for recording and monitoring livestock conditions, but in this case, the livestock being monitored are goats. This dashboard includes a feature for recording when it is time to harvest goat milk. The technologies used to create this dashboard include VueJS, Bootstrap, Vuex, and Axios for API communication.",
+        "descriptionShort": "Goat livestock monitoring dashboard with milk harvest tracking, built using Vue.js and modern web technologies."
+      },
+      "restopiaMobile": {
+        "description": "I created this web application in collaboration with the UI/UX and backend teams. In developing it, I used web frontend technologies such as VueJS and Tailwind. This application aims to make it easier for customers to order food without having to queue at the cashier. It is integrated with the cashier system and kitchen applications to notify the chef when an order is received. When the order is complete, a notification will appear on the ordering device.",
+        "descriptionShort": "PWA-based food ordering system with real-time cashier and kitchen integration, built using Vue.js and Tailwind CSS."
+      },
+      "restopiaDashboard": {
+        "description": "Just like the Restopia mobile application, this dashboard was created as the final project during the internship. I was assigned to work on the frontend of the dashboard, while other team members handled the backend logic. The dashboard is used to calculate profit amounts, record incoming and outgoing finances, print daily, weekly, or monthly reports, and allow admins to manage raw material stock or available menus. The technologies used include VueJS, Tailwind, Vuex, and Axios for API communication, and WebSocket for real-time communication between customer, cashier, and kitchen applications, ensuring smooth system integration.",
+        "descriptionShort": "A real-time admin dashboard for a PWA-based food ordering system, managing finances, inventory, menus, and system communication via WebSocket."
+      }
+    }
+  },
   "home": {
     "location": "Yogyakarta, Indonesia",
     "hero": {
@@ -19,7 +104,7 @@
       "mindset": "frontend mindset"
     },
     "intro": {
-      "rolePrefix": "React Native Developer, currently at ",
+      "rolePrefix": "Frontend Developer, currently at ",
       "roleSuffix": ".",
       "focus": "I focus on building high-quality mobile applications with great UX, performance, and attention to detail.",
       "growth": "I enjoy crafting cross-platform, mobile-first experiences and continuously expanding my skills toward full-stack mobile development."
@@ -50,6 +135,52 @@
         "startDate": "Aug 2022",
         "endDate": "Dec 2022",
         "description": "Developed features for the restaurant platform to make it easier for customers to order and make payments, and to make it easier for owners to manage restaurant finances."
+      }
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About"
+    },
+    "title": "About",
+    "intro": {
+      "focus": "I'm a frontend developer with a sharp eye for UX and design, meticulous attention to detail, and a relentless focus on quality.",
+      "skills": "Skilled in JavaScript frameworks like Vue and React, also strictly typed with TypeScript, I turn ideas into refined, user-friendly experiences. I'm driven by a deep curiosity and a passion for UX/UI design, developer experience, and writing clean, maintainable code.",
+      "cyclingPrefix": "Beyond code, I enjoy",
+      "cyclingSuffix": "both road bikes and MTBs. It's my favorite way to clear my head after a long day of staring at code and solving problems.",
+      "hobby": "When I'm not on the bike, I'm usually into collecting diecast cars, especially Hot Wheels and Matchbox. It's a fun, nostalgic hobby that lets me slow down and appreciate the small details outside of work."
+    },
+    "techStack": {
+      "title": "Tech stack",
+      "daily": {
+        "prefix": "On a regular basis, I work with",
+        "and": "and"
+      },
+      "experience": {
+        "prefix": "I also have some experience building projects with",
+        "and": "and",
+        "like": "I especially like"
+      },
+      "radar": {
+        "title": "On my radar",
+        "backendPrefix": "While my background is primarily in mobile development, I'm currently expanding toward a full-stack role. I started by integrating my mobile apps with serverless backends like",
+        "and": "and",
+        "backendSuffix": "which sparked a deeper interest in backend development.",
+        "learningPrefix": "Now, I'm actively learning backend fundamentals and architecture, with",
+        "learningSuffix": "as my main focus, to better understand how mobile apps and backend systems work together end-to-end."
+      }
+    },
+    "highlights": {
+      "title": "Professional Highlights",
+      "certificates": {
+        "sib": "Certificate of Completion for the SIB Dicoding Program - Frontend & Backend Web Developer",
+        "gitSolution": "Certificate of Completion for Internship Program at PT Git Solution",
+        "mentor": "Certificate of Appreciation as a Bootcamp Mentor",
+        "mentorProgress": "Certificate of Appreciation for the Bootcamp Mentor with the Best Progress Improvement",
+        "javascript": "Meta Certificate Programming with JavaScript",
+        "reactBasics": "Meta Certificate React Basics",
+        "reactAdvanced": "Meta Certificate React Advanced",
+        "reactNative": "Meta Certificate React Native"
       }
     }
   }

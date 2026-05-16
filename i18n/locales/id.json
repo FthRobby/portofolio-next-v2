@@ -9,6 +9,91 @@
     "projects": "Proyek",
     "contact": "Kontak"
   },
+  "contact": {
+    "meta": {
+      "title": "Kontak"
+    },
+    "title": "Apa Selanjutnya?",
+    "description": "Inbox saya selalu terbuka! Baik untuk bertanya atau sekadar menyapa, saya akan membalas secepat mungkin. Silakan kirim pesan kapan saja untuk update atau hal lainnya!",
+    "form": {
+      "name": {
+        "label": "Nama",
+        "placeholder": "Nama kamu"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email kamu"
+      },
+      "message": {
+        "label": "Pesan",
+        "placeholder": "Tulis pesan kamu di sini..."
+      },
+      "submit": {
+        "default": "Kirim Pesan",
+        "loading": "Mengirim..."
+      }
+    },
+    "status": {
+      "invalidEmail": "Alamat email tidak valid.",
+      "success": "Pesan berhasil dikirim!",
+      "error": "Gagal mengirim pesan. Silakan coba lagi."
+    },
+    "toast": {
+      "success": {
+        "title": "Pesan Terkirim",
+        "description": "Terima kasih sudah menghubungi saya. Saya akan segera membalas."
+      },
+      "error": {
+        "title": "Gagal mengirim pesan",
+        "description": "Terjadi kesalahan. Silakan coba lagi."
+      }
+    }
+  },
+  "projects": {
+    "meta": {
+      "title": "Proyek"
+    },
+    "title": "Proyek",
+    "actions": {
+      "back": "Kembali",
+      "code": "Kode",
+      "live": "Live"
+    },
+    "items": {
+      "simpresHatpen": {
+        "description": "SimPres Hatpen adalah aplikasi resmi untuk mengelola presensi pegawai di Balai Kesehatan Penerbangan. Dengan dukungan teknologi Face Recognition, SimPres Hatpen memastikan proses presensi yang lebih cepat, aman, dan akurat. Aplikasi ini juga memudahkan pengguna untuk melihat riwayat presensi serta mengajukan cuti atau izin secara online, sehingga pegawai memiliki fleksibilitas lebih dalam mengelola kehadiran.",
+        "descriptionShort": "Aplikasi presensi pegawai dengan face recognition untuk check-in cepat dan aman, pelacakan kehadiran, serta pengajuan cuti online."
+      },
+      "epresensiSemeru": {
+        "description": "Aplikasi ini menyediakan solusi praktis dengan memungkinkan personel melakukan presensi kegiatan secara digital melalui perangkat mobile. Dengan fitur yang terintegrasi dan aman, ePresensi membantu meningkatkan efisiensi pengelolaan data kehadiran serta memudahkan pemantauan presensi dalam kegiatan operasional.",
+        "descriptionShort": "Aplikasi resmi yang dirancang untuk menyederhanakan proses presensi kegiatan bagi seluruh personel Polda Jawa Timur."
+      },
+      "itaniSahabatPetani": {
+        "description": "iTani adalah platform pertanian digital berbasis website dan aplikasi mobile yang menyediakan solusi mudah bagi #PetaniDigital dalam mendapatkan 3P, yaitu pembiayaan, pendampingan pengolahan lahan, dan pengolahan hasil panen. Teknologi ini dirancang untuk menjawab kebutuhan #PetaniDigital terhadap pengetahuan tentang komoditas yang sedang mereka kelola.",
+        "descriptionShort": "Platform digital untuk mendukung Petani Digital dengan solusi pembiayaan, pengelolaan lahan, dan pengolahan hasil panen."
+      },
+      "imanhub": {
+        "description": "Aplikasi ini dirancang untuk pengguna dari berbagai usia, baik muda maupun tua. Tidak hanya menyediakan fitur membaca Al-Quran secara online, aplikasi ini juga memiliki fitur arah kiblat, kumpulan bacaan hadits shahih, penghitung tasbih, dan kumpulan doa harian. Teknologi yang digunakan dalam pengembangan aplikasi ini mencakup Expo sebagai framework aplikasi multiplatform dan Gluestack UI untuk styling komponen.",
+        "descriptionShort": "Aplikasi Islami lengkap dengan bacaan Al-Quran, arah kiblat, kumpulan hadits, tasbih, dan doa harian untuk berbagai usia."
+      },
+      "smartTernakDashboard": {
+        "description": "Dashboard ini dibuat untuk memantau kondisi ternak broiler. Sistem ini terintegrasi dengan WebSocket dan terhubung secara real-time dengan perangkat IoT di kandang untuk memantau suhu udara, kelembapan, kadar amonia, aliran udara, aliran air, dan intensitas cahaya. Aplikasi web ini juga dapat digunakan untuk mencatat kapan ternak siap didistribusikan atau dijual. Saya bertugas mengerjakan frontend dashboard ini dengan berkolaborasi bersama tim backend dan IoT. Teknologi yang digunakan meliputi VueJS, Bootstrap, Pinia, dan Axios untuk komunikasi API.",
+        "descriptionShort": "Dashboard web untuk memantau kondisi ternak broiler secara real-time, terintegrasi dengan perangkat IoT untuk melacak metrik lingkungan dan kesiapan distribusi."
+      },
+      "smartFarmDashboard": {
+        "description": "Seperti dashboard Smart-Ternak, SmartFarm Dashboard juga digunakan untuk mencatat dan memantau kondisi ternak, tetapi dalam kasus ini ternak yang dipantau adalah kambing. Dashboard ini memiliki fitur untuk mencatat waktu panen susu kambing. Teknologi yang digunakan untuk membuat dashboard ini meliputi VueJS, Bootstrap, Vuex, dan Axios untuk komunikasi API.",
+        "descriptionShort": "Dashboard pemantauan ternak kambing dengan fitur pencatatan panen susu, dibangun menggunakan Vue.js dan teknologi web modern."
+      },
+      "restopiaMobile": {
+        "description": "Saya membuat aplikasi web ini dengan berkolaborasi bersama tim UI/UX dan backend. Dalam pengembangannya, saya menggunakan teknologi frontend web seperti VueJS dan Tailwind. Aplikasi ini bertujuan memudahkan pelanggan memesan makanan tanpa harus mengantre di kasir. Sistem ini terintegrasi dengan aplikasi kasir dan dapur untuk memberi tahu koki ketika pesanan diterima. Saat pesanan selesai, notifikasi akan muncul di perangkat pemesan.",
+        "descriptionShort": "Sistem pemesanan makanan berbasis PWA dengan integrasi kasir dan dapur secara real-time, dibangun menggunakan Vue.js dan Tailwind CSS."
+      },
+      "restopiaDashboard": {
+        "description": "Seperti aplikasi mobile Restopia, dashboard ini dibuat sebagai proyek akhir selama magang. Saya bertugas mengerjakan frontend dashboard, sementara anggota tim lain menangani logika backend. Dashboard ini digunakan untuk menghitung keuntungan, mencatat keuangan masuk dan keluar, mencetak laporan harian, mingguan, atau bulanan, serta memungkinkan admin mengelola stok bahan baku atau menu yang tersedia. Teknologi yang digunakan meliputi VueJS, Tailwind, Vuex, dan Axios untuk komunikasi API, serta WebSocket untuk komunikasi real-time antara aplikasi pelanggan, kasir, dan dapur agar integrasi sistem berjalan lancar.",
+        "descriptionShort": "Dashboard admin real-time untuk sistem pemesanan makanan berbasis PWA, mengelola keuangan, inventori, menu, dan komunikasi sistem via WebSocket."
+      }
+    }
+  },
   "home": {
     "location": "Yogyakarta, Indonesia",
     "hero": {
@@ -19,7 +104,7 @@
       "mindset": "pola pikir frontend"
     },
     "intro": {
-      "rolePrefix": "React Native Developer, saat ini di ",
+      "rolePrefix": "Frontend Developer, saat ini di ",
       "roleSuffix": ".",
       "focus": "Saya fokus membangun aplikasi mobile berkualitas tinggi dengan UX yang baik, performa yang optimal, dan perhatian pada detail.",
       "growth": "Saya senang membuat pengalaman lintas platform yang mobile-first dan terus mengembangkan kemampuan menuju full-stack mobile development."
@@ -50,6 +135,52 @@
         "startDate": "Agu 2022",
         "endDate": "Des 2022",
         "description": "Mengembangkan fitur untuk platform restoran agar pelanggan lebih mudah melakukan pemesanan dan pembayaran, serta membantu pemilik restoran mengelola keuangan dengan lebih mudah."
+      }
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Tentang"
+    },
+    "title": "Tentang",
+    "intro": {
+      "focus": "Saya adalah frontend developer dengan perhatian kuat pada UX dan desain, detail yang rapi, serta fokus yang konsisten pada kualitas.",
+      "skills": "Berpengalaman dengan framework JavaScript seperti Vue dan React, serta terbiasa bekerja dengan TypeScript, saya mengubah ide menjadi pengalaman digital yang matang dan mudah digunakan. Saya digerakkan oleh rasa ingin tahu yang besar, ketertarikan pada desain UX/UI, developer experience, dan penulisan kode yang bersih serta mudah dirawat.",
+      "cyclingPrefix": "Di luar kode, saya suka",
+      "cyclingSuffix": "baik road bike maupun MTB. Bersepeda jadi cara favorit saya untuk menjernihkan pikiran setelah seharian menatap kode dan menyelesaikan masalah.",
+      "hobby": "Saat tidak bersepeda, saya biasanya mengoleksi diecast, terutama Hot Wheels dan Matchbox. Hobi kecil yang nostalgis ini membantu saya melambat sejenak dan menikmati detail-detail kecil di luar pekerjaan."
+    },
+    "techStack": {
+      "title": "Tech stack",
+      "daily": {
+        "prefix": "Dalam pekerjaan sehari-hari, saya menggunakan",
+        "and": "dan"
+      },
+      "experience": {
+        "prefix": "Saya juga punya pengalaman membangun proyek dengan",
+        "and": "dan",
+        "like": "dan saya terutama menyukai"
+      },
+      "radar": {
+        "title": "Yang sedang saya pelajari",
+        "backendPrefix": "Walaupun latar belakang saya terutama di pengembangan mobile, saat ini saya sedang berkembang menuju peran full-stack. Saya memulainya dengan mengintegrasikan aplikasi mobile saya dengan backend serverless seperti",
+        "and": "dan",
+        "backendSuffix": "yang kemudian memantik ketertarikan lebih dalam pada pengembangan backend.",
+        "learningPrefix": "Sekarang, saya aktif mempelajari fundamental dan arsitektur backend, dengan",
+        "learningSuffix": "sebagai fokus utama saya, agar lebih memahami bagaimana aplikasi mobile dan sistem backend bekerja bersama dari awal sampai akhir."
+      }
+    },
+    "highlights": {
+      "title": "Pencapaian Profesional",
+      "certificates": {
+        "sib": "Sertifikat Penyelesaian Program SIB Dicoding - Frontend & Backend Web Developer",
+        "gitSolution": "Sertifikat Penyelesaian Program Magang di PT Git Solution",
+        "mentor": "Sertifikat Apresiasi sebagai Mentor Bootcamp",
+        "mentorProgress": "Sertifikat Apresiasi Mentor Bootcamp dengan Peningkatan Progres Terbaik",
+        "javascript": "Sertifikat Meta Programming with JavaScript",
+        "reactBasics": "Sertifikat Meta React Basics",
+        "reactAdvanced": "Sertifikat Meta React Advanced",
+        "reactNative": "Sertifikat Meta React Native"
       }
     }
   }
